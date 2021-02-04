@@ -1,11 +1,35 @@
-import React from 'react'
+import React, {useState} from 'react'
 import CategoryCard from './CategoryCard'
 
 
-function CategoryContainer({selectedMonthData}){
+function CategoryContainer({selectedMonthData, createCategory}){
+    const [clicked, setClicked] = useState(false)
+    const [formData, setFormData] = useState({
+        name: "",
+        budget: "",
+        monthly_budget_id: ""
+    })
 
-    // console.log(selectedMonthData)
+    // console.log(selectedMonthData.id)
     // if (selectedMonthData) return <h2>Loading...</h2>;
+
+    function handleChange(event){
+        const name = event.target.name; 
+        let value = event.target.value;
+
+   
+        setFormData({
+            ...formData,
+            [name]: value,
+            monthly_budget_id: selectedMonthData.id
+        })
+    }
+    
+    function handleSubmit(e){
+        e.preventDefault();
+        createCategory(formData)
+        setClicked(false)
+    }
 
 
     const categoriesList = selectedMonthData.categories.map(category => {
@@ -13,13 +37,32 @@ function CategoryContainer({selectedMonthData}){
         
     })
 
+    const categoryFormObj = (
+        <form className="category-new-form" onSubmit={handleSubmit}>
+            <input 
+                placeholder="Category Name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange} 
+            />
+            <input
+                type="number"
+                placeholder="Budget"
+                name="budget"
+                value={formData.amount}
+                onChange={handleChange}
+            />
+            <button type="submit">Add Transaction</button>
+        </form>
+    )
+
     return( 
         <>
         <div className="category-container-div">
             <h1>categories here</h1>
         
             {categoriesList}
-
+            {!clicked ? <button className="add-category-button" onClick={() => setClicked(true)}>Create Category</button> : categoryFormObj}
             <br></br>
         </div>
         </>

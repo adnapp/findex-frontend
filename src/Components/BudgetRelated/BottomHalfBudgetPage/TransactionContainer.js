@@ -15,13 +15,6 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
         const name = event.target.name; 
         let value = event.target.value;
 
-        // if (event.target.type === "select") {
-        //     value = event.target.checked;
-        //   }
-
-        console.log(event.target)
-        console.log(value)
-
         setFormData({
             ...formData,
             [name]: value,
@@ -47,22 +40,17 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
 
     const formObj = (
          <form className="new-transaction-form" onSubmit={handleSubmit}>
-             <label>
-                 Transaction Name
-             </label>
+            <input 
+                placeholder="Transaction Name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange} />
              <input 
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange} />
-            <label>
-                 Amount
-             </label>
-             <input 
-                    type="number"
-                    name="amount"
-                    value={formData.amount}
-                    onChange={handleChange}/>
+                type="number"
+                placeholder="Transaction Amount"
+                name="amount"
+                value={formData.amount}
+                onChange={handleChange}/>
             <select onChange={handleChange} name="category_id">
                 <option selected value="null">Select a Category</option>
                 {categoriesList}

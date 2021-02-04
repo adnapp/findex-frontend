@@ -64,6 +64,22 @@ function BudgetPage(){
         .then(data => setTransactions(data))
     }
 
+    function createCategory(formData){
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/categories`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          })
+          .then(response => response.json())
+          .then(data => {
+            setTransactions(data);
+          })
+
+
+    }
+
 
 
     return( 
@@ -75,7 +91,7 @@ function BudgetPage(){
 
         <div className="top-half-budget-page">
             <MonthGraph/>
-            <CategoryContainer selectedMonthData={selectedMonthData}/>
+            <CategoryContainer selectedMonthData={selectedMonthData} createCategory={createCategory}/>
         </div>
         <div className="bottom-half-budget-page">
             <TransactionContainer selectedMonthData={selectedMonthData} submitTransaction={submitTransaction} handleRemoveTransaction={handleRemoveTransaction}/>
