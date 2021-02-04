@@ -2,13 +2,16 @@ import React from 'react'
 import TransactionList from './TransactionList'
 
 
-function TransactionContainer(){
+function TransactionContainer({selectedMonthData}){
+
+
+    const transactions = selectedMonthData[0].transactions
 
     return( 
         <>
         <div className="transaction-container">
             
-             <TransactionList/>
+             <TransactionList transactions={transactions}/>
 
         </div>
         </>

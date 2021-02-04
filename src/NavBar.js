@@ -9,8 +9,8 @@ function NavBar(){
             <NavLink exact to="/">
                 <strong>HOME</strong>
             </NavLink>
-            <NavLink exact to="/overview">
-                <strong>Overview</strong>
+            <NavLink exact to="/budget">
+                <strong>Budgets</strong>
             </NavLink>
             <NavLink exact to="/profile">
                 <strong>Profile</strong>

@@ -1,11 +1,15 @@
 import React from 'react'
 
 
-function TransactionCard(){
+function TransactionCard({transaction}){
+
+    const {id, name, amount, type} = transaction 
+
+
 
     return( 
         <div className="transaction-card-div">
-            transaction card
+            <p>{name}, -${amount}</p>
         </div>
     )
 }
