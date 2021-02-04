@@ -1,4 +1,5 @@
 import React from 'react'
+import CategoryCard from './CategoryCard'
 
 
 function CategoryContainer({selectedMonthData}){
@@ -7,8 +8,9 @@ function CategoryContainer({selectedMonthData}){
     // if (selectedMonthData) return <h2>Loading...</h2>;
 
 
-    const categoriesList = selectedMonthData[0].categories.map(category => {
-        return <p key={category.id}>{category.name}</p>
+    const categoriesList = selectedMonthData.categories.map(category => {
+        return  <CategoryCard key={category.id} category={category}/>
+        
     })
 
     return( 

@@ -1,15 +1,21 @@
 import React from 'react'
 
 
-function TransactionCard({transaction}){
+function TransactionCard({transaction, handleRemoveTransaction}){ //passing handleRemoveTransaction too far
 
-    const {id, name, amount, type} = transaction 
+    const {id, name, amount} = transaction 
 
-
+    // console.log(transaction.category_id)
 
     return( 
         <div className="transaction-card-div">
-            <p>{name}, -${amount}</p>
+            <p>{name}, ${amount.toFixed(2)}</p>
+            <button 
+                className="delete-transaction-btn" 
+                data-id={id}
+                onClick={() => handleRemoveTransaction(id)}
+                >X
+            </button>
         </div>
     )
 }
