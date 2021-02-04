@@ -11,3 +11,51 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* ================================================== */
+ /*                       Budget Page                                 */              
+ /* ================================================== */
+
+
+ /* ================================================== */
+ /*                   Top Half Budget Page             */              
+ /* ================================================== */
+
+.top-half-budget-page {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+/* ================================================== */
+ /*                       Txn Container                */
+ /* ================================================== */
+
+/* .transaction-container { */
+  /* outline-width: 1px; */
+  /* background: rgb(94, 109, 109); */
+/* } */
+
+
+/* ================================================== */
+ /*                       Txn List                    */
+ /* ================================================== */
+
+.transaction-list-div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ================================================== */
+ /*                       Txn Card                    */
+ /* ================================================== */
+
+.transaction-card-div {
+  border:1px #ccc solid;
+  padding:10px;
+  background: rgb(94, 109, 109);
+
+}
