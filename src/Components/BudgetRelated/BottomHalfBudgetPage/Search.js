@@ -1,11 +1,22 @@
 import React from 'react'
 
 
-function Search(){
+function Search({categoriesList, handleChange}){
+
+
+//filter transactions here
+
 
     return( 
         <div className="txn-search-card-div">
-            search
+            <label>
+                Find transaction by category
+            </label>
+            
+            <select onChange={(e) => handleChange(e.target.value)}>
+                <option selected value="all">All</option>
+                {categoriesList}
+            </select>
         </div>
     )
 }

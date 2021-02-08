@@ -59,11 +59,13 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
          </form>
     )
 
+console.log(categoriesList)
+
     return( 
         <>
         <div className="transaction-container">
             
-             <TransactionList transactions={transactions} handleRemoveTransaction={handleRemoveTransaction}/>
+             <TransactionList transactions={transactions} handleRemoveTransaction={handleRemoveTransaction} categoriesList={categoriesList} />
 
         </div>
         {!clicked ? <button onClick={(e) => setClicked(true)}>Add Transaction</button> : formObj}

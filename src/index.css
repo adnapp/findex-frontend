@@ -27,24 +27,65 @@ code {
   justify-content: space-around;
 }
 
+
+/* ================================================== */
+ /*                       Graphs                  */
+ /* ================================================== */
+.chartjs-render-monitor {
+  height: 100%;
+  padding: 0 50px 50px;
+
+}
+
+
+.doughnut-chart{
+  height: 100%;
+  width: 60%;
+  background: #1a1a1a;
+
+}
+
+
 /* ================================================== */
  /*                       Categories                  */
  /* ================================================== */
 
  .category-container-div{
   border:1px #ccc solid;
+  width: 20%;
+ 
+
  }
 
+ 
 
+ /* ================================================== */
+ /*                   Category Card                  */
+ /* ================================================== */
+
+ /* .category-card-div{
+  display: flex;
+  flex-direction: column;
+  
+ } */
+
+
+ /* ================================================== */
+ /*                 Bottom Half Budget Page             */              
+ /* ================================================== */
 
 /* ================================================== */
  /*                       Txn Container                */
  /* ================================================== */
 
-/* .transaction-container { */
-  /* outline-width: 1px; */
-  /* background: rgb(94, 109, 109); */
-/* } */
+.transaction-container { 
+  display: flex;
+
+  justify-content: center;
+
+  /* outline-width: 1px; 
+  background: rgb(94, 109, 109);*/
+}
 
 
 /* ================================================== */
@@ -54,6 +95,8 @@ code {
 .transaction-list-div {
   display: flex;
   flex-direction: column;
+  width: 50%;
+  /* align-items: center; */
 }
 
 
@@ -66,4 +109,13 @@ code {
   padding:5px;
   background: rgb(94, 109, 109);
 
+}
+
+
+
+
+.doughnut-chart {
+  background: #1a1a1a;
+  height: 100%;
+  border-radius: 15px;
 }

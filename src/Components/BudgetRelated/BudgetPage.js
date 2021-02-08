@@ -12,11 +12,8 @@ function BudgetPage(){
     const [isLoaded, setIsLoaded] = useState(false)
     const [transactions, setTransactions] = useState([]) //used to refresh page
 
-
-
     //month will be selected here, this is where fetch will happen. 
     //Then values will go down to Graph/Containers
-
 
     //look @ time.now to set initial date on page load
 
@@ -90,7 +87,7 @@ function BudgetPage(){
         </select>
 
         <div className="top-half-budget-page">
-            <MonthGraph/>
+            <MonthGraph selectedMonthData={selectedMonthData}/>
             <CategoryContainer selectedMonthData={selectedMonthData} createCategory={createCategory}/>
         </div>
         <div className="bottom-half-budget-page">
