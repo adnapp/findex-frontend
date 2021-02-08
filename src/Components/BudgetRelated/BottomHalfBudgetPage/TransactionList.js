@@ -1,22 +1,35 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Search from './Search'
 import TransactionCard from './TransactionCard'
 
 
-function TransactionList({transactions, handleRemoveTransaction}){
+function TransactionList({transactions, handleRemoveTransaction, categoriesList}){
+
+    const [selectedCategory, setSelectedCategory] = useState("all")
 
 
-    const transactionsObj = transactions.map((transaction=> {
+    // console.log(selectedCategory)
+
+    function handleChange(value){
+        setSelectedCategory(value)
+    }
+
+    const filteredTransactions = transactions.filter(transaction =>{
+        if (selectedCategory === "all"){
+            return transaction 
+        }
+        return transaction.category_id == selectedCategory
+    })
+
+    const transactionsObj = filteredTransactions.map((transaction=> {
         return <TransactionCard key={transaction.id} transaction={transaction} handleRemoveTransaction={handleRemoveTransaction}/>
     }))
 
-
-    // console.log(transactions)
     return( 
         <>
         <div className="transaction-list-div">
-            <Search/>
             <h3>Transactions:</h3>
+            <Search categoriesList={categoriesList} handleChange={handleChange}/>
             {transactionsObj}
             
 

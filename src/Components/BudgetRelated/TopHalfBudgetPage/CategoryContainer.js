@@ -52,16 +52,17 @@ function CategoryContainer({selectedMonthData, createCategory}){
                 value={formData.amount}
                 onChange={handleChange}
             />
-            <button type="submit">Add Transaction</button>
+            <button type="submit">Create</button>
         </form>
     )
 
     return( 
         <>
         <div className="category-container-div">
-            <h1>categories here</h1>
-        
-            {categoriesList}
+            <h2>Categories:</h2>
+            <div className="category-card-div">
+                {categoriesList}
+            </div>
             {!clicked ? <button className="add-category-button" onClick={() => setClicked(true)}>Create Category</button> : categoryFormObj}
             <br></br>
         </div>

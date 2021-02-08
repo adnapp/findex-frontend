@@ -24,9 +24,7 @@ function CategoryCard({category}){
             <h3>{name}</h3>
             <h5>Budget: {budget}</h5>
             <h5>Total Spent: {totalSpent}</h5>
-            
-
-            <br></br>
+        
         </div>
         </>
     )
