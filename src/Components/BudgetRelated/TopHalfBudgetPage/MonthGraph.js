@@ -42,7 +42,9 @@ function MonthGraph({selectedMonthData}){
 
     let chartOptions = {
         responsive: true,
-        title: { text: "Category Budget..", display:true 
+        title: { text: "Categories as a percentage of Budget", 
+                display:true, 
+                fontSize: 30 
         },    
         legend: {
             position: 'left',

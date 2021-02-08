@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import CategoryCard from './CategoryCard'
 
 
-function CategoryContainer({selectedMonthData, createCategory}){
+function CategoryContainer({selectedMonthData, createCategory, handleRemoveCategory, submitCategoryEdit}){
     const [clicked, setClicked] = useState(false)
     const [formData, setFormData] = useState({
         name: "",
@@ -33,8 +33,12 @@ function CategoryContainer({selectedMonthData, createCategory}){
 
 
     const categoriesList = selectedMonthData.categories.map(category => {
-        return  <CategoryCard key={category.id} category={category}/>
-        
+        return  <CategoryCard 
+                    key={category.id} 
+                    category={category} 
+                    handleRemoveCategory={handleRemoveCategory}
+                    submitCategoryEdit = {submitCategoryEdit}
+                />
     })
 
     const categoryFormObj = (
@@ -56,16 +60,22 @@ function CategoryContainer({selectedMonthData, createCategory}){
         </form>
     )
 
+    const createCategoryButtonObj = (
+        <button className="add-category-button" onClick={() => setClicked(true)}>
+            Create Category
+        </button>
+    )
+
+    
     return( 
         <>
+        <h2>Categories:</h2>
         <div className="category-container-div">
-            <h2>Categories:</h2>
-            <div className="category-card-div">
-                {categoriesList}
-            </div>
-            {!clicked ? <button className="add-category-button" onClick={() => setClicked(true)}>Create Category</button> : categoryFormObj}
+            
+            {categoriesList}
             <br></br>
         </div>
+            {!clicked ? createCategoryButtonObj : categoryFormObj}
         </>
     )
 }

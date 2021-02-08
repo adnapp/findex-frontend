@@ -24,7 +24,8 @@ code {
 
 .top-half-budget-page {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
 }
 
 
@@ -51,10 +52,11 @@ code {
  /* ================================================== */
 
  .category-container-div{
-  border:1px #ccc solid;
-  width: 20%;
- 
-
+  /* border:1px #ccc solid; */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap ;
+  justify-content: space-evenly;
  }
 
  
@@ -63,11 +65,13 @@ code {
  /*                   Category Card                  */
  /* ================================================== */
 
- /* .category-card-div{
-  display: flex;
-  flex-direction: column;
-  
- } */
+ .category-card-div{
+
+  /* flex-direction: column; */
+  border:1px #ccc solid;
+  width: 20%;
+
+ }
 
 
  /* ================================================== */
