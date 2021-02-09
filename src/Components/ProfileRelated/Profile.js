@@ -17,11 +17,11 @@ function Profile(){
 
     if (!isLoaded) return <h2>Loading...</h2>;
 
-console.log(allMonths)
+// console.log(allMonths)
     return( 
         <>
         <h3>ProfileRelated</h3>
-        <MonthComparisonChart/>
+        <MonthComparisonChart allMonths={allMonths}/>
         </>
     )
 }
