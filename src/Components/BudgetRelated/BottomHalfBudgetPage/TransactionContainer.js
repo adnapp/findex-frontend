@@ -59,7 +59,7 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
          </form>
     )
 
-console.log(categoriesList)
+// console.log(categoriesList)
 
     return( 
         <>

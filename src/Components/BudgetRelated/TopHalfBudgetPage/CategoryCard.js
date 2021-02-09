@@ -15,9 +15,7 @@ function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
         0
       ).toFixed(2)
 
-    console.log(isEditClicked)
-    
-
+    // console.log(isEditClicked)
     const categoryDataObj = (
         <>
             <h3>{name}</h3>
@@ -36,6 +34,7 @@ function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
             </>
     )
 
+    //handle new category form submit
     function handleSubmit(e){
         e.preventDefault()
         
@@ -49,8 +48,7 @@ function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
 
     }
 
-    console.log(budgetValue)
-
+    // edit category form
     const categoryEditForm = (
 
         <form className="edit-category-form" onSubmit={handleSubmit}>

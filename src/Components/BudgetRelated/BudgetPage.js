@@ -17,6 +17,7 @@ function BudgetPage(){
 
     //look @ time.now to set initial date on page load
 
+    //initial load
     useEffect(()=> {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/monthly_budgets`)
         .then(resp => resp.json())
@@ -27,11 +28,6 @@ function BudgetPage(){
     }, [transactions])
 
     if (!isLoaded) return <h2>Loading...</h2>;
-
-
-    // console.log(allMonths)
-    // console.log(selectionValues)
-
 
     const selectionValues = allMonths.map(month => {
         return <option key={month.id} value={month.id}>{month.name}</option>
@@ -62,8 +58,6 @@ function BudgetPage(){
     }
 
     function handleRemoveCategory(id){
-        console.log(id)
-
         
             fetch(`${process.env.REACT_APP_API_BASE_URL}/categories/${id}`, {
                 method: "DELETE"
@@ -102,8 +96,21 @@ function BudgetPage(){
           })
 
     }
+    
+    //sum up total budget
+    const totalBudget = selectedMonthData.categories.map(category => {
+        return category.budget
+    }).reduce(( accumulator, currentValue ) => accumulator + currentValue,
+    0
+    ).toFixed(2)
 
-
+    //sums up total spent
+    const totalSpent = selectedMonthData.transactions.map(transaction => {
+        return transaction.amount
+    }).reduce(( accumulator, currentValue ) => accumulator + currentValue,
+    0
+    ).toFixed(2)
+    console.log(totalSpent)
 
     return( 
         <>
@@ -113,6 +120,8 @@ function BudgetPage(){
         </select>
 
         <div className="top-half-budget-page">
+            <p>Total Spent {totalSpent}</p>
+            <p>Total budget: {totalBudget}</p>
             <MonthGraph selectedMonthData={selectedMonthData}/>
             <CategoryContainer 
                 selectedMonthData={selectedMonthData} 
@@ -127,6 +136,5 @@ function BudgetPage(){
         </>
     )
 }
-
 
 export default BudgetPage

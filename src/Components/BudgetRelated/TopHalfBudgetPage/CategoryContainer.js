@@ -32,7 +32,9 @@ function CategoryContainer({selectedMonthData, createCategory, handleRemoveCateg
     }
 
 
-    const categoriesList = selectedMonthData.categories.map(category => {
+    const sortedCategoriesList = selectedMonthData.categories.sort((a, b)=> b.budget - a.budget)
+
+    const categoriesList = sortedCategoriesList.map(category => {
         return  <CategoryCard 
                     key={category.id} 
                     category={category} 
