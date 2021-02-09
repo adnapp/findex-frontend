@@ -27,9 +27,6 @@ function MonthComparisonChart({allMonths}){
     console.log(monthNames)
 
 
-
-
-
     //chart
 
 

@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react'
 // import {useHistory} from 'react-router-dom'
 import TransactionContainer from './BottomHalfBudgetPage/TransactionContainer'
+import Modal from './Modal/MonthlyIncomeModal'
 import CategoryContainer from './TopHalfBudgetPage/CategoryContainer'
 import MonthGraph from './TopHalfBudgetPage/MonthGraph'
 
 
 function BudgetPage(){
+    const [showMIModal, setShowMIModal] = useState(false)
 
     const [allMonths, setAllMonths]= useState({})
     const [selectedMonthNumber, setSelectedMonthNumber] = useState(33)
@@ -81,7 +83,6 @@ function BudgetPage(){
     }
 
     function submitCategoryEdit(data){
-        console.log(data)
         fetch(`${process.env.REACT_APP_API_BASE_URL}/categories/${data.id}`, {
             method: 'PATCH',
             headers: {
@@ -90,10 +91,20 @@ function BudgetPage(){
             body: JSON.stringify(data),
           })
           .then(response => response.json())
-          .then(data => {
-            setTransactions(data);
-          })
+          .then(data => setTransactions(data))
+    }
 
+    function updateMonthBudget(data){
+        console.log(data)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/monthly_budgets/${selectedMonthNumber}`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          })
+          .then(response => response.json())
+          .then(data=> setTransactions(data))
     }
     
     //sum up total budget
@@ -110,7 +121,12 @@ function BudgetPage(){
         <select onChange={(e) => setSelectedMonthNumber((e.target.value))}>
             {selectionValues}
         </select>
-        <button>Adjust Monthly Income</button>
+        <button onClick={() => setShowMIModal(true)}>Adjust Monthly Income</button>
+        <Modal 
+            show={showMIModal} 
+            onClose={() => setShowMIModal(false)}
+            currentIncome = {selectedMonthData.budget}
+            updateMonthBudget={updateMonthBudget}/>
 
         <div className="top-half-budget-page">
             <p>Total Spent {totalSpent}</p>
