@@ -63,9 +63,12 @@ function CategoryContainer({selectedMonthData, createCategory, handleRemoveCateg
     )
 
     const createCategoryButtonObj = (
-        <button className="add-category-button" onClick={() => setClicked(true)}>
-            Create Category
-        </button>
+        <div className="create-category-button-div">
+            <button className="add-category-button" onClick={() => setClicked(true)}>
+
+                Create Category
+            </button>
+        </div>
     )
 
     

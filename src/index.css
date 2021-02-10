@@ -28,36 +28,74 @@ code {
   flex-direction: column;
 }
 
+.top-half-budget-page-text{
+  display: flex;
+  flex-direction: column;
+}
+
+@media(min-width:768px){
+.text-and-chart-budget-page{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  }
+}
+
+.top-half-budget-page-text{
+  flex-grow: 2;
+}
+
+.month-change-buttons-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.budget-page-chart-div{
+    flex-grow: 5;
+    height: 100%;
+    width: 50%;
+}
+
+.no-categories-div{
+  border: 1px #ccc solid;
+  width: 60%;
+}
 
 /* ================================================== */
  /*                       Graphs                  */
  /* ================================================== */
-.chartjs-render-monitor {
+
+
+
+  .chartjs-render-monitor {
   height: 100%;
   padding: 0 50px 50px;
-
+    width: 90%;
 }
 
-
+/*
 .doughnut-chart{
   height: 100%;
   width: 60%;
   background: #1a1a1a;
 
-}
+} */
 
 
 /* ================================================== */
  /*                       Categories                  */
  /* ================================================== */
 
+ @media(min-width:768px){
  .category-container-div{
   /* border:1px #ccc solid; */
   width: 100%;
   display: flex;
   flex-wrap: wrap ;
   justify-content: space-evenly;
- }
+ }}
 
  
 
@@ -70,7 +108,7 @@ code {
   /* flex-direction: column; */
   border:1px #ccc solid;
   width: 20%;
-
+  align-content: space-around;
  }
 
 
@@ -161,6 +199,7 @@ code {
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  display: inline-block;
 }
 
 

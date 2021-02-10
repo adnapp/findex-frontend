@@ -21,14 +21,7 @@ function MainContainer(){
             <Route exact path="/profile">
                 <Profile/>
             </Route>
-
-
-
-
         </Switch>
-
-
-
         </>
     )
 }

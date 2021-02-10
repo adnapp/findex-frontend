@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 // import {useHistory} from 'react-router-dom'
 import TransactionContainer from './BottomHalfBudgetPage/TransactionContainer'
+import CreateNewMonthModal from './Modal/CreateNewMonthModal'
 import Modal from './Modal/MonthlyIncomeModal'
 import CategoryContainer from './TopHalfBudgetPage/CategoryContainer'
 import MonthGraph from './TopHalfBudgetPage/MonthGraph'
@@ -8,9 +9,11 @@ import MonthGraph from './TopHalfBudgetPage/MonthGraph'
 
 function BudgetPage(){
     const [showMIModal, setShowMIModal] = useState(false)
+    const [createMonthModal, setCreateMonthModal] = useState(false)
+
 
     const [allMonths, setAllMonths]= useState({})
-    const [selectedMonthNumber, setSelectedMonthNumber] = useState(40)
+    const [selectedMonthNumber, setSelectedMonthNumber] = useState(44) /// let's auto select this
     const [isLoaded, setIsLoaded] = useState(false)
     const [transactions, setTransactions] = useState([]) //used to refresh page
     
@@ -27,16 +30,12 @@ function BudgetPage(){
             setAllMonths(data)
             setIsLoaded(true)
         })
-    }, [transactions])
+    }, [transactions, selectedMonthNumber])
     
     if (!isLoaded) return <h2>Loading...</h2>;
     
-    const existingMonthNums = allMonths.map(month => {
-        return month.id
-    })
-
-    console.log(existingMonthNums)
-    
+    const existingMonthNums = allMonths.map(month => month.id )
+   
     function submitTransaction(formData){
         fetch(`${process.env.REACT_APP_API_BASE_URL}/transactions`, {
             method: 'POST',
@@ -109,18 +108,13 @@ function BudgetPage(){
           .then(data=> setTransactions(data))
     }
 
-    // let monthForwardBoolean
     function monthForward(){
-        // monthForwardBoolean = existingMonthNums.indexOf(selectedMonthNumber+1)
-
-        if( existingMonthNums.indexOf(selectedMonthNumber+1)>-1 ){
-
+           if( existingMonthNums.indexOf(selectedMonthNumber+1)>-1 ){
             setSelectedMonthNumber((selectedMonthNumber+1))
         }
     }
 
     function monthBack(){
-        // (e) => setSelectedMonthNumber((selectedMonthNumber-1))
         if(existingMonthNums.indexOf(selectedMonthNumber)){
             setSelectedMonthNumber((selectedMonthNumber-1))
         }
@@ -136,28 +130,51 @@ function BudgetPage(){
     .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
 
     return( 
-        <>
-        <h4>{selectedMonthData.name}</h4>
-        <div className="month-change-buttons">
-            
-            {(existingMonthNums.indexOf(selectedMonthNumber-1) > -1)? <button onClick={monthBack} className="month-back">  ◀️</button>: null}
-            {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? <button onClick={monthForward} className="month-forward"> ▶️</button>: null}
+        <div className="budget-page-div">
+        <div className="month-change-buttons-div">
+            {(existingMonthNums.indexOf(selectedMonthNumber-1) > -1)? <h1 onClick={monthBack} className="month-back">  ◀️  </h1>: null}
+            <h4>{selectedMonthData.name}</h4>
+            {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? <h1 onClick={monthForward} className="month-forward"> ▶️ </h1>: null}
         </div>
-        {/* <select onChange={(e) => setSelectedMonthNumber((e.target.value))}>
-            {existingMonthNums}
-        </select> */}
-        <button onClick={() => setShowMIModal(true)}>Adjust Monthly Income</button>
+
         <Modal 
             show={showMIModal} 
             onClose={() => setShowMIModal(false)}
             currentIncome = {selectedMonthData.budget}
-            updateMonthBudget={updateMonthBudget}/>
+            updateMonthBudget={updateMonthBudget}
+        />
+        <CreateNewMonthModal 
+            show={createMonthModal}
+            onClose={() => setCreateMonthModal(false)}
+            setSelectedMonthNumber = {setSelectedMonthNumber}
+        
+        />
 
         <div className="top-half-budget-page">
-            <p>Total Spent {totalSpent}</p>
-            {totalBudget > selectedMonthData.budget ? <p> Total budget: ${totalBudget}. Your budget is higher than your income this month</p> : <p>Total budget: {totalBudget}</p>}
-            <p>Monthly Income: {selectedMonthData.budget}</p>
-            <MonthGraph selectedMonthData={selectedMonthData}/>
+            
+            <div className="text-and-chart-budget-page">
+                <div className="top-half-budget-page-text">
+                    <div className="adjust-add-budget-buttons-div">
+                        {existingMonthNums.indexOf(selectedMonthNumber+1) == -1 ? <button onClick={() => setCreateMonthModal(true)}>Create New Month</button> : null}
+                    </div>
+                    {/* if (selectedMonthData.categories[0]){  */}
+                        <p>Total Spent {totalSpent}</p>
+                        {totalBudget > selectedMonthData.budget ? <p> Total budget ${totalBudget}. Your budget is higher than your income this month</p> : <p>Total budget: {totalBudget}</p>}
+                    {/* } */}
+                    <p>Monthly Income: {selectedMonthData.budget}</p>
+                    <div className="monthly-income-button-div">
+                        <button onClick={() => setShowMIModal(true)}>Adjust Monthly Income</button>
+                    </div>
+                </div>
+                <div className="budget-page-chart-div">
+                    {selectedMonthData.categories[0]? (
+                     <MonthGraph selectedMonthData={selectedMonthData}/> 
+                     ) : (
+                     <div className="no-categories-div">
+                        <h3>You should create some categories for this month</h3>
+                        <h3>Use the button below</h3></div>)}
+                    </div>
+            </div>
             <CategoryContainer 
                 selectedMonthData={selectedMonthData} 
                 createCategory={createCategory} 
@@ -165,10 +182,13 @@ function BudgetPage(){
                 submitCategoryEdit={submitCategoryEdit}
             />
         </div>
-        <div className="bottom-half-budget-page">
-            <TransactionContainer selectedMonthData={selectedMonthData} submitTransaction={submitTransaction} handleRemoveTransaction={handleRemoveTransaction}/>
+
+        {selectedMonthData.categories[0] ? 
+            <div className="bottom-half-budget-page">
+                <TransactionContainer selectedMonthData={selectedMonthData} submitTransaction={submitTransaction} handleRemoveTransaction={handleRemoveTransaction}/>
+            </div>
+        : null}
         </div>
-        </>
     )
 }
 
