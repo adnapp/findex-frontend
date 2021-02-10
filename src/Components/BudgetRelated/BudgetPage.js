@@ -10,7 +10,7 @@ function BudgetPage(){
     const [showMIModal, setShowMIModal] = useState(false)
 
     const [allMonths, setAllMonths]= useState({})
-    const [selectedMonthNumber, setSelectedMonthNumber] = useState(33)
+    const [selectedMonthNumber, setSelectedMonthNumber] = useState(40)
     const [isLoaded, setIsLoaded] = useState(false)
     const [transactions, setTransactions] = useState([]) //used to refresh page
     
@@ -31,9 +31,11 @@ function BudgetPage(){
     
     if (!isLoaded) return <h2>Loading...</h2>;
     
-    const selectionValues = allMonths.map(month => {
-        return <option key={month.id} value={month.id}>{month.name}</option>
+    const existingMonthNums = allMonths.map(month => {
+        return month.id
     })
+
+    console.log(existingMonthNums)
     
     function submitTransaction(formData){
         fetch(`${process.env.REACT_APP_API_BASE_URL}/transactions`, {
@@ -106,6 +108,24 @@ function BudgetPage(){
           .then(response => response.json())
           .then(data=> setTransactions(data))
     }
+
+    // let monthForwardBoolean
+    function monthForward(){
+        // monthForwardBoolean = existingMonthNums.indexOf(selectedMonthNumber+1)
+
+        if( existingMonthNums.indexOf(selectedMonthNumber+1)>-1 ){
+
+            setSelectedMonthNumber((selectedMonthNumber+1))
+        }
+    }
+
+    function monthBack(){
+        // (e) => setSelectedMonthNumber((selectedMonthNumber-1))
+        if(existingMonthNums.indexOf(selectedMonthNumber)){
+            setSelectedMonthNumber((selectedMonthNumber-1))
+        }
+
+    }
     
     //sum up total budget
     const totalBudget = selectedMonthData.categories.map(category => (category.budget))
@@ -117,10 +137,15 @@ function BudgetPage(){
 
     return( 
         <>
-        <h4>budgeting page, month selection here</h4>
-        <select onChange={(e) => setSelectedMonthNumber((e.target.value))}>
-            {selectionValues}
-        </select>
+        <h4>{selectedMonthData.name}</h4>
+        <div className="month-change-buttons">
+            
+            {(existingMonthNums.indexOf(selectedMonthNumber-1) > -1)? <button onClick={monthBack} className="month-back">  ◀️</button>: null}
+            {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? <button onClick={monthForward} className="month-forward"> ▶️</button>: null}
+        </div>
+        {/* <select onChange={(e) => setSelectedMonthNumber((e.target.value))}>
+            {existingMonthNums}
+        </select> */}
         <button onClick={() => setShowMIModal(true)}>Adjust Monthly Income</button>
         <Modal 
             show={showMIModal} 
