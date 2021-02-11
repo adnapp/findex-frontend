@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import ProgressBar from './ProgressBar';
 
 function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
     const [isEditClicked, setIsEditClicked] = useState(false)
@@ -15,10 +15,20 @@ function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
         0
       ).toFixed(2)
 
+      const data1 = [
+          {spending: 1, spent: totalSpent}
+      ]
+
+      const data2 = [
+        {"budgeted": 1, spent: budget}
+    ]
+
     // console.log(isEditClicked)
     const categoryDataObj = (
         <>
+        
             <h3>{name}</h3>
+            <ProgressBar budget={budget} totalSpent={totalSpent}/>
             <h5>Budget: {budget}</h5>
             <h5>Total Spent: {totalSpent}</h5>
             <button
