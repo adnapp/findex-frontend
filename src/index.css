@@ -13,8 +13,47 @@ code {
 }
 
 
+
+
 /* ================================================== */
- /*                       Budget Page                                 */              
+ /*                      NAV BAR                 */              
+ /* ================================================== */
+
+
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0 10px rgba(66, 66, 66, 0.849);
+  background-color:transparent;
+  /* position: fixed; */
+  top: 100;
+  width: 100%;
+  transition: 0.4s;
+  z-index: 3;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+ul li {
+  margin-right: 20px;
+}
+
+
+
+
+
+
+
+
+
+/* ================================================== */
+ /*                       Budget Page                 */              
  /* ================================================== */
 
 
@@ -26,6 +65,7 @@ code {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 
 .top-half-budget-page-text{
@@ -91,17 +131,18 @@ code {
  @media(min-width:768px){
  .category-container-div{
   /* border:1px #ccc solid; */
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap ;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  margin: -10px 0 0 0;
  }}
 
- 
+ .category-container-div > *{
+  margin-top: 20px;
+ }
 
- /* ================================================== */
- /*                   Category Card                  */
- /* ================================================== */
+ 
 
  .category-card-div{
 
@@ -109,6 +150,7 @@ code {
   border:1px #ccc solid;
   width: 20%;
   align-content: space-around;
+  margin-top: 10;
  }
 
 

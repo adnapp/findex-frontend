@@ -11,12 +11,12 @@ function NavBar(){
        <>
         <li>
             <NavLink exact to="/budget">
-                <strong>Budgets</strong>
+                <strong>BUDGETS</strong>
             </NavLink>
         </li>
         <li>
             <NavLink exact to="/profile">
-                <strong>Profile</strong>
+                <strong>PROFILE</strong>
             </NavLink>
         </li>
         </>)
@@ -33,9 +33,12 @@ function NavBar(){
             
             {loggedIn ? headerLinksObj() : history.push(`/`)}         
 
+            <li className="login" onClick={toggle}>
+                {loggedIn ? "LOGOUT" : "LOGIN"}
+            </li>
+            
         </ul>
         
-        <p className="login" onClick={toggle}>{loggedIn ? "LOGOUT" : "LOGIN"}</p>
         </nav>
     )
 }
