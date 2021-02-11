@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from "react-router-dom";
 import BudgetPage from './Components/BudgetRelated/BudgetPage';
-import Home from './Home';
+import Home from './Components/HomePage/Home';
 import Profile from './Components/ProfileRelated/Profile';
 
 

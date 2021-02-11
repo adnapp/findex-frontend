@@ -154,6 +154,29 @@ ul li {
  }
 
 
+ .progress-bar{
+  position: relative;
+  height: 8px;
+  border-radius: 5px;
+  width: 88%;
+  margin: 0 auto;
+  background: rgb(165, 164, 187);
+  border:1px #ccc solid;
+  z-index: 0;
+
+  
+ }
+
+
+ .progress-filler{
+   /* width: 75%; */
+   height: 100%;
+   border-radius: 5px;
+    /* z-index: 3; */
+   /* background: rgb(10, 0, 208); */
+   transition: width .2s ease-in;
+ }
+
  /* ================================================== */
  /*                 Bottom Half Budget Page             */              
  /* ================================================== */
