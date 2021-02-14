@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import ProgressBar from './ProgressBar';
+import styled from "styled-components";
+
 
 function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
     const [isEditClicked, setIsEditClicked] = useState(false)
@@ -85,15 +87,23 @@ function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
     return( 
         <>
         {!isEditClicked ? 
-            <div className="category-card-div">
+            <CategoryCardDiv>
                 {categoryDataObj}
-            </div> : 
-            <div className="category-card-div">
+            </CategoryCardDiv> : 
+            <CategoryCardDiv>
                 {categoryEditForm}
-            </div> }
+            </CategoryCardDiv> }
         </>
     )
 }
+
+const CategoryCardDiv = styled.div`
+    border:1px #ccc solid;
+    width: 20%;
+    align-content: space-around;
+    margin-top: 10;
+    border-radius: 5px;
+`;
 
 
 export default CategoryCard

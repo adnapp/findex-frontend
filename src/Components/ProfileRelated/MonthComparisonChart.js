@@ -5,7 +5,7 @@ import { Bar } from 'react-chartjs-2';
 function MonthComparisonChart({allMonths}){
     const [chartData, setChartData] = useState({})
 
-    console.log(allMonths)
+    // console.log(allMonths)
 
 
     const monthlyBudget = allMonths.map(month=> {
@@ -13,18 +13,18 @@ function MonthComparisonChart({allMonths}){
         .reduce(( accumulator, currentValue ) => accumulator + currentValue,0)
     })
     
-    console.log("budget",monthlyBudget)
+    // console.log("budget",monthlyBudget)
 
     const monthlyActuals = allMonths.map(month=> {
         return month.transactions.map(transaction => transaction.amount)
         .reduce(( accumulator, currentValue ) => accumulator + currentValue,0)
     })
 
-    console.log("Actuals", monthlyActuals)
+    // console.log("Actuals", monthlyActuals)
     
     const monthNames = allMonths.map(month=> month.name)
 
-    console.log(monthNames)
+    // console.log(monthNames)
 
 
     //chart
