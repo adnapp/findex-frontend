@@ -148,6 +148,9 @@ function BudgetPage(){
                 <h3>{selectedMonthData.name}</h3>
                 {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? <h1 onClick={monthForward} className="month-forward"> ▶️ </h1>: null}
             </div>
+            {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? null : <button onClick={() => setCreateMonthModal(true)}>Create New Month</button>}
+
+            
             <div className="progress-bar">
                     <div className="progress-filler" style={mainProgressBarStyle} ></div>
                     <br></br>

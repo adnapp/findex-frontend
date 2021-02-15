@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import NavBar from './NavBar';
+import NavBar from './Components/NavBar/NavBar';
 import MainContainer from './MainContainer';
 import Footer from './Footer';
 import { LoginProvider } from './Login';

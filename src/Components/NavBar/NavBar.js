@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react"
 import {NavLink, useHistory} from "react-router-dom"
-import { LoginContext } from "./Login"
+import { LoginContext } from "../../Login"
 
 function NavBar(){
     const {loggedIn, toggle} = useContext(LoginContext)

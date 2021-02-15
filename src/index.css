@@ -1,5 +1,8 @@
 body {
   margin: 0;
+  background-color: #1b1b1b;
+  color: #ffffff;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -33,6 +36,11 @@ code {
   z-index: 3;
 }
 
+ul a.active {
+  background-color: #2a7415;
+  padding: 10px 10px;
+  color: white;
+}
 
 ul {
   list-style-type: none;
@@ -45,10 +53,19 @@ ul li {
 }
 
 
+.nav-bar li {
+  display: inline-block;
+  line-height: 37px;
+  padding: 0px 0px;
+  margin: 0px 15px 0px 15px;
+}
 
 
-
-
+.nav-bar li:hover {
+  background-color: #2a7415;
+  padding: 2px 10px;
+  transition: 1s;
+}
 
 
 
