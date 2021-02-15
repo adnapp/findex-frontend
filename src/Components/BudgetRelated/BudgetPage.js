@@ -11,15 +11,10 @@ import styled from "styled-components";
 function BudgetPage(){
     const [showMIModal, setShowMIModal] = useState(false)
     const [createMonthModal, setCreateMonthModal] = useState(false)
-
-
     const [allMonths, setAllMonths]= useState({})
     const [selectedMonthNumber, setSelectedMonthNumber] = useState(44) /// let's auto select this
     const [isLoaded, setIsLoaded] = useState(false)
     const [transactions, setTransactions] = useState([]) //used to refresh page
-    
-    //month will be selected here, this is where fetch will happen. 
-    //Then values will go down to Graph/Containers
     
     //look @ time.now to set initial date on page load
     
@@ -58,6 +53,7 @@ function BudgetPage(){
         .then(response => response.json())
         .then(data => setTransactions(data))
     }
+    
     const selectedMonthData = allMonths.find(month=>(month.id == selectedMonthNumber))
     
     function handleRemoveCategory(id){
@@ -119,7 +115,6 @@ function BudgetPage(){
         if(existingMonthNums.indexOf(selectedMonthNumber)){
             setSelectedMonthNumber((selectedMonthNumber-1))
         }
-
     }
     
     //sum up total budget
@@ -137,6 +132,15 @@ function BudgetPage(){
         zIndex: 3,
     }
 
+
+    console.log(selectedMonthData)
+    //used to not enable this variable unless there is data-- refactor?
+    let biggestTransaction = 0
+    {selectedMonthData.transactions[0] ?
+         biggestTransaction = selectedMonthData.transactions.reduce(
+        (accumulator,obj) => (obj.amount > accumulator.amount ? obj : accumulator))
+    :  biggestTransaction=0}
+
     return( 
         <div className="budget-page-div">
             <div className="month-change-buttons-div">
@@ -152,7 +156,7 @@ function BudgetPage(){
                     <EditMonthlyIncome onClick={() => setShowMIModal(true)}>Adjust</EditMonthlyIncome>
                     
             </div>
-           <div style={{height: "40px"}}></div> {/* used to push down chart  */}
+           <div style={{height: "40px"}}></div> {/* used to move chart lower  */}
             <br></br>
 
             <Modal 
@@ -171,18 +175,20 @@ function BudgetPage(){
             <div className="top-half-budget-page">
                 
                 <div className="text-and-chart-budget-page">
-                    <div className="top-half-budget-page-text">
-                        <div className="adjust-add-budget-buttons-div">
-                            {existingMonthNums.indexOf(selectedMonthNumber+1) == -1 ? <button onClick={() => setCreateMonthModal(true)}>Create New Month</button> : null}
+
+                    {selectedMonthData.transactions[0] ? //only display text if transacitons exist
+                        <div className="top-half-budget-page-text">
+                            <div className="adjust-add-budget-buttons-div">
+                                {existingMonthNums.indexOf(selectedMonthNumber+1) == -1 ? <button onClick={() => setCreateMonthModal(true)}>Create New Month</button> : null}
+                            </div>  
+                                {totalBudget > selectedMonthData.budget ? 
+                                    <p> Total budget ${totalBudget}. Your budget is higher than your income this month</p> 
+                                    : <p>Total budget: {totalBudget}</p>
+                                }
+                            <p>Your highest spend item this month was {biggestTransaction.name} where you spent ${biggestTransaction.amount.toFixed(2)}.</p>
+                            <p> and your highest spend category was :</p>
                         </div>
-                        {/* if (selectedMonthData.categories[0]){  */}
-                            
-                            {totalBudget > selectedMonthData.budget ? <p> Total budget ${totalBudget}. Your budget is higher than your income this month</p> : <p>Total budget: {totalBudget}</p>}
-                        {/* } */}
-                        <p>Your highest spend item this month was:</p>
-                        <p> and your highest spend category was :</p>
-                        
-                    </div>
+                    : null }
                     <div className="budget-page-chart-div">
                         {selectedMonthData.categories[0]? (
                         <MonthGraph selectedMonthData={selectedMonthData}/> 

@@ -62,26 +62,24 @@ function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
 
     // edit category form
     const categoryEditForm = (
-
-        <form className="edit-category-form" onSubmit={handleSubmit}>
-            <label> Name:</label>
-            <input
-                name="name"
-                value={categoryName}
-                onChange={(e) => setCategoryName(e.target.value)}
-            />
-            <label> Budget:</label>
-            <input 
-                name="budget"
-                value = {budgetValue}
-                onChange={(e) => setBudgetValue(e.target.value)}
-            />
-
-            <button 
-                type="submit">
-                    submit
-            </button>
-        </form>
+            <form className="edit-category-form" onSubmit={handleSubmit}>
+                <label> Name:</label>
+                <input
+                    name="name"
+                    value={categoryName}
+                    onChange={(e) => setCategoryName(e.target.value)}
+                />
+                <label> Budget:</label>
+                <input 
+                    name="budget"
+                    value = {budgetValue}
+                    onChange={(e) => setBudgetValue(e.target.value)}
+                />
+                <button 
+                    type="submit">
+                        submit
+                </button>
+            </form>
     )
 
     return( 
@@ -92,6 +90,7 @@ function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
             </CategoryCardDiv> : 
             <CategoryCardDiv>
                 {categoryEditForm}
+                <button onClick={()=> setIsEditClicked(!isEditClicked)}>Cancel</button>
             </CategoryCardDiv> }
         </>
     )

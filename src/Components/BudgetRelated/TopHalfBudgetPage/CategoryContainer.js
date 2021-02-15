@@ -44,22 +44,25 @@ function CategoryContainer({selectedMonthData, createCategory, handleRemoveCateg
     })
 
     const categoryFormObj = (
-        <form className="category-new-form" onSubmit={handleSubmit}>
-            <input 
-                placeholder="Category Name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange} 
-            />
-            <input
-                type="number"
-                placeholder="Budget"
-                name="budget"
-                value={formData.amount}
-                onChange={handleChange}
-            />
-            <button type="submit">Create</button>
-        </form>
+        <div>
+            <form className="category-new-form" onSubmit={handleSubmit}>
+                <input 
+                    placeholder="Category Name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange} 
+                />
+                <input
+                    type="number"
+                    placeholder="Budget"
+                    name="budget"
+                    value={formData.amount}
+                    onChange={handleChange}
+                />
+                <button type="submit">Create</button>
+            </form>
+            <button onClick={() => setClicked(false)}>Cancel</button>
+        </div>
     )
 
     const createCategoryButtonObj = (

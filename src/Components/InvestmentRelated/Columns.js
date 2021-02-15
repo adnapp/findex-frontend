@@ -24,6 +24,7 @@ function useColumns() {
         style: {
             color: 'blue'
         }
+        
       },
       {
         Header: "Symbol",
