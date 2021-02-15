@@ -53,7 +53,7 @@ function CryptoTable({selectedCoins}){
                         <tr {...row.getRowProps()}>
                             {row.cells.map(cell => {
                             return (
-                                <td {...cell.getCellProps()} onClick={doNothing}>{cell.render("Cell")}</td>
+                                <td {...cell.getCellProps()} >{cell.render("Cell")}</td>
                             );
                             })}
                         </tr>

@@ -1,6 +1,17 @@
 import { useMemo } from "react";
 
-export default function useColumns() {
+function useColumns() {
+
+    function toCurrency(numberString) {
+        let number = parseFloat(numberString);
+        return number.toLocaleString('USD');
+    }
+
+    function toFormat(numberString) {
+        let number = parseFloat(numberString);
+        return number.toLocaleString('USD');
+    }
+
   const columns = useMemo(
     () => [
       {
@@ -9,7 +20,10 @@ export default function useColumns() {
       },
       {
         Header: "Name",
-        accessor: "name"
+        accessor: "name",
+        style: {
+            color: 'blue'
+        }
       },
       {
         Header: "Symbol",
@@ -17,20 +31,29 @@ export default function useColumns() {
       },
       {
         Header: "Price (USD)",
-        accessor: "current_price"
+        accessor: "current_price",
+        Cell: props =>  toCurrency(props.value)
+
       },
       {
         Header: "24h Volume",
-        accessor: "total_volume"
+        accessor: "total_volume",
+        Cell: props =>  toFormat(props.value)
+
         }
       ,
       {
         Header: "Mkt Cap",
-        accessor: "market_cap"
+        accessor: "market_cap",
+        Cell: props =>  toFormat(props.value)
+
       }
+     
     ],
     []
   );
 
   return columns;
 }
+
+export default useColumns
