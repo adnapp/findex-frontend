@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import ProgressBar from './ProgressBar';
+import styled from "styled-components";
+
 
 function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
     const [isEditClicked, setIsEditClicked] = useState(false)
@@ -60,40 +62,47 @@ function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
 
     // edit category form
     const categoryEditForm = (
-
-        <form className="edit-category-form" onSubmit={handleSubmit}>
-            <label> Name:</label>
-            <input
-                name="name"
-                value={categoryName}
-                onChange={(e) => setCategoryName(e.target.value)}
-            />
-            <label> Budget:</label>
-            <input 
-                name="budget"
-                value = {budgetValue}
-                onChange={(e) => setBudgetValue(e.target.value)}
-            />
-
-            <button 
-                type="submit">
-                    submit
-            </button>
-        </form>
+            <form className="edit-category-form" onSubmit={handleSubmit}>
+                <label> Name:</label>
+                <input
+                    name="name"
+                    value={categoryName}
+                    onChange={(e) => setCategoryName(e.target.value)}
+                />
+                <label> Budget:</label>
+                <input 
+                    name="budget"
+                    value = {budgetValue}
+                    onChange={(e) => setBudgetValue(e.target.value)}
+                />
+                <button 
+                    type="submit">
+                        submit
+                </button>
+            </form>
     )
 
     return( 
         <>
         {!isEditClicked ? 
-            <div className="category-card-div">
+            <CategoryCardDiv>
                 {categoryDataObj}
-            </div> : 
-            <div className="category-card-div">
+            </CategoryCardDiv> : 
+            <CategoryCardDiv>
                 {categoryEditForm}
-            </div> }
+                <button onClick={()=> setIsEditClicked(!isEditClicked)}>Cancel</button>
+            </CategoryCardDiv> }
         </>
     )
 }
+
+const CategoryCardDiv = styled.div`
+    border:1px #ccc solid;
+    width: 20%;
+    align-content: space-around;
+    margin-top: 10;
+    border-radius: 5px;
+`;
 
 
 export default CategoryCard

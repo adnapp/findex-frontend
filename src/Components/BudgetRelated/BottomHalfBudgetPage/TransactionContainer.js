@@ -35,6 +35,12 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
         submitTransaction(formData)
         setClicked(false)
 
+        setFormData({
+            name: "",
+            amount: "",
+            type: null,
+            category_id: ""
+        })
     }
 
 

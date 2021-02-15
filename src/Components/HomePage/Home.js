@@ -30,12 +30,6 @@ function Home(){
         <div>
         <h1> this is Home</h1>
 
-        <div className="progress-bar">
-            <div className="progress-filler" style={{width: "50%"}}>
-
-            </div>
-
-        </div>
 
 
 

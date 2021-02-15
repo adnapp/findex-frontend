@@ -19,6 +19,11 @@ function NavBar(){
                 <strong>PROFILE</strong>
             </NavLink>
         </li>
+        <li>
+            <NavLink exact to="/investments">
+                <strong>INVESTMENTS</strong>
+            </NavLink>
+        </li>
         </>)
     }
 

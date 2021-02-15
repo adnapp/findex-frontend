@@ -4,35 +4,27 @@ import React from "react"
 function ProgressBar({budget, totalSpent}){
 
 
-const percentage = (totalSpent/budget)*100
+let percentage = (totalSpent/budget)*100
 
-console.log(percentage)
-// let percentage="50%"
-
-let scaledPercentage
 let progressBarColor
-if (percentage >= 100){
-     scaledPercentage = 100
+if (percentage > 100){
+     percentage = 100
      progressBarColor = "red"
 } else if(percentage==0){
     progressBarColor = "rgb(165, 164, 187)"
+}else if(percentage==100){
+    progressBarColor = "#347c17"
+}else if(percentage >= 90 && percentage < 100){
+    progressBarColor = "rgb(203, 172, 48)"
 
+}else {
+    progressBarColor = "rgb(95, 142, 167)"
 }
-
-
-else {
-    scaledPercentage = percentage
-    progressBarColor = "green"
-
-}
-
 
 const myStyle ={
-    width: `${scaledPercentage}%`,
+    width: `${percentage}%`,
     background: progressBarColor,
     zIndex: 3,
-    // background: "green"
-
 }
 
 

@@ -110,24 +110,66 @@ ul li {
 
 
   .chartjs-render-monitor {
-  height: 100%;
+  /* height: 140%; */
   padding: 0 50px 50px;
     width: 90%;
 }
 
-/*
+
 .doughnut-chart{
-  height: 100%;
-  width: 60%;
+  /* height: 30%; */
+  /* width: 100%; */
   background: #1a1a1a;
 
-} */
+} 
 
 
 /* ================================================== */
  /*                       Categories                  */
  /* ================================================== */
 
+
+ .add-category-button {
+  background: rgba(247, 249, 252, 0.72);
+  background-image: -webkit-linear-gradient(top, rgba(247, 249, 252, 0.72), #525D6A);
+  background-image: -moz-linear-gradient(top, rgba(247, 249, 252, 0.72), #525D6A);
+  background-image: -ms-linear-gradient(top, rgba(247, 249, 252, 0.72), #525D6A);
+  background-image: -o-linear-gradient(top, rgba(247, 249, 252, 0.72), #525D6A);
+  background-image: -webkit-gradient(to bottom, rgba(247, 249, 252, 0.72), #525D6A);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: 100;
+  padding: 11px;
+  -webkit-box-shadow: 1px 1px 20px 0 #FFFFFF;
+  -moz-box-shadow: 1px 1px 20px 0 #FFFFFF;
+  box-shadow: 1px 1px 20px 0 #FFFFFF;
+  text-shadow: 1px 1px 20px #000000;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.add-category-button:hover {
+  border: solid #337FED 1px;
+  background: #3D94F6;
+  background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+  background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+  background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+  background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+  background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+
+ 
  @media(min-width:768px){
  .category-container-div{
   /* border:1px #ccc solid; */
@@ -144,14 +186,14 @@ ul li {
 
  
 
- .category-card-div{
+ /* .category-card-div{
 
-  /* flex-direction: column; */
-  border:1px #ccc solid;
+  flex-direction: column; */
+  /* border:1px #ccc solid;
   width: 20%;
   align-content: space-around;
   margin-top: 10;
- }
+ } */
 
 
  .progress-bar{
@@ -269,3 +311,19 @@ ul li {
 
 
 
+
+
+/* ================================================== */
+ /*                      Investment pg                */
+ /* ================================================== */
+
+ /* ================================================== */
+ /*                      Crypto cards               */
+ /* ================================================== */
+
+ .crypto-cards-div{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   /* text-align: left; */
+ }
