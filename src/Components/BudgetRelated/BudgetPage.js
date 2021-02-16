@@ -129,7 +129,7 @@ function BudgetPage(){
     const mainProgressBarStyle ={
         width: `${percentageSpent}%`,
         background: "#00468c",
-        zIndex: 3,
+        // zIndex: 3,
     }
 
 
