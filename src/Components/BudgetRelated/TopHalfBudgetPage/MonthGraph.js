@@ -44,13 +44,15 @@ function MonthGraph({selectedMonthData}){
         responsive: true,
         title: { text: "Budget Broken Down into Categories", 
                 display:true, 
-                fontSize: 30 
+                fontSize: 30,
+                fontColor: "#FFFFFF"
         },    
         legend: {
             position: 'left',
             labels: {
                 fontSize: 18,
-                padding: 12
+                padding: 12,
+                fontColor: "#FFFFFF"
             }
         },
         cutoutPercentage: 40,
