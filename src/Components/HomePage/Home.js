@@ -1,5 +1,8 @@
 import React from "react"
 import ReactDOM from 'react-dom'
+// import Logo from './topOfPageLogo.png';
+
+
 // import { 
 //     VictoryBar, 
 //     VictoryChart, 
@@ -30,7 +33,7 @@ function Home(){
         <div>
         <h1> this is Home</h1>
 
-
+        {/* <img src={Logo} alt="hi"/> */}
 
 
 

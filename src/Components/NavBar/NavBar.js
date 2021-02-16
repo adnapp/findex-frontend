@@ -6,9 +6,7 @@ import * as AiIcons from "react-icons/ai";
 import {NavBarData} from './NavBarData';
 import './NavBar.css';
 import {IconContext} from 'react-icons';
-// import topOfPageLogo from '..../Images/topOfPageLogo.png';
-// src/Images/topOfPageLogo.png
-// src/Components/NavBar/NavBar.js
+import Logo from '../images/findexLargerLogo.png';
 
 function NavBar(){
     const {loggedIn, toggle} = useContext(LoginContext)
@@ -16,7 +14,6 @@ function NavBar(){
     const [navBar, setNavBar] = useState(false)
 
     const showNavBar = () => setNavBar(!navBar);
-    // console.log(topOfPageLogo)
     return (
         <>
         <IconContext.Provider value={{color:'fff'}}>
@@ -25,7 +22,7 @@ function NavBar(){
                     <FaIcons.FaBars onClick={showNavBar}/> 
                 </Link>
                 <h3 className="top-title">Findex</h3>
-                {/* <img src={logo} alt="top image"/> */}
+                <img src={Logo} alt="top image" width="200" height = "60"/>
             </div>
             <nav className={navBar ? "nav-menu active" : "nav-menu"}>
                 <ul className='nav-menu-items' onClick={showNavBar}>
