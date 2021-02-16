@@ -6,6 +6,7 @@ import Modal from './Modal/MonthlyIncomeModal'
 import CategoryContainer from './TopHalfBudgetPage/CategoryContainer'
 import MonthGraph from './TopHalfBudgetPage/MonthGraph'
 import styled from "styled-components";
+import './BudgetPage.css'
 
 
 function BudgetPage(){
@@ -231,10 +232,14 @@ const PercentageSpentLabel = styled.div`
 `
 
 const EditMonthlyIncome = styled.button`
-position:absolute;
-right: -25px;
-border-radius: 7px;
-
+    position:absolute;
+    right: -25px;
+    border-radius: 7px;
+    padding: 4px 8px;
+    border: none;
+    color: #fff;
+    background: #141414;
+    cursor: pointer;
 `;
 
 

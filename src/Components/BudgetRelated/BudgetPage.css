@@ -1,0 +1,41 @@
+.top-half-budget-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-half-budget-page-text{
+  display: flex;
+  flex-direction: column;
+}
+
+@media(min-width:768px){
+.text-and-chart-budget-page{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  }
+}
+
+.top-half-budget-page-text{
+  flex-grow: 2;
+}
+
+.month-change-buttons-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.budget-page-chart-div{
+    flex-grow: 5;
+    height: 100%;
+    width: 50%;
+}
+
+.no-categories-div{
+  border: 1px #ccc solid;
+  width: 60%;
+}

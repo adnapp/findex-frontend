@@ -45,6 +45,7 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
 
 
     const formObj = (
+        <>
          <form className="new-transaction-form" onSubmit={handleSubmit}>
             <input 
                 placeholder="Transaction Name"
@@ -62,14 +63,15 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
                 {categoriesList}
             </select>
             <button type="submit">Add Transaction</button>
-            
          </form>
+         <button onClick={() => setClicked(false)}>cancel</button>
+         </>
     )
 
 // console.log(categoriesList)
 
     return( 
-        <>
+        <button>
         <div className="transaction-container">
             
              <TransactionList transactions={transactions} handleRemoveTransaction={handleRemoveTransaction} categoriesList={categoriesList} />
@@ -77,7 +79,7 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
         </div>
         {!clicked ? <button onClick={(e) => setClicked(true)}>Create Transaction</button> : formObj}
 
-        </>
+        </button>
     )
 }
 

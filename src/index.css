@@ -73,53 +73,6 @@ ul li {
  /*                       Budget Page                 */              
  /* ================================================== */
 
-
- /* ================================================== */
- /*                   Top Half Budget Page             */              
- /* ================================================== */
-
-.top-half-budget-page {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.top-half-budget-page-text{
-  display: flex;
-  flex-direction: column;
-}
-
-@media(min-width:768px){
-.text-and-chart-budget-page{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  }
-}
-
-.top-half-budget-page-text{
-  flex-grow: 2;
-}
-
-.month-change-buttons-div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.budget-page-chart-div{
-    flex-grow: 5;
-    height: 100%;
-    width: 50%;
-}
-
-.no-categories-div{
-  border: 1px #ccc solid;
-  width: 60%;
-}
-
 /* ================================================== */
  /*                       Graphs                  */
  /* ================================================== */
@@ -194,12 +147,13 @@ ul li {
   width: 80%;
   display: flex;
   flex-wrap: wrap ;
-  justify-content: space-around;
+  justify-content: center;
   margin: -10px 0 0 0;
  }}
 
  .category-container-div > *{
   margin-top: 20px;
+  margin-right: 20px;
  }
 
  
@@ -294,38 +248,6 @@ ul li {
  /* ================================================== */
  /*          change monthly budget Modal                */
  /* ================================================== */
-.modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  align-items:center;
-  justify-content: center;
-}
-
-.modal-content {
-  width: 500px;
-  background-color: #fff;
-}
-
-.modal-header, .modal-footer {
-  padding: 10px
-}
-
-.modal-title {
-  margin: 0;
-}
-
-.modal-body {
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  display: inline-block;
-}
-
 
 
 
