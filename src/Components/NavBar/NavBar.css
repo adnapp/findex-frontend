@@ -71,3 +71,12 @@
 span{
     margin-left: 16px;
 }
+
+
+.top-title{
+    /* display: flex; */
+    width: 100%;
+    justify-content: center; 
+    color: #f5f5f5;
+    text-align: center;
+}

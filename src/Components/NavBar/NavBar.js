@@ -1,11 +1,14 @@
-import React, {useContext, useState} from "react"
-import {Link, useHistory} from "react-router-dom"
-import { LoginContext } from "../../Login"
-import * as FaIcons from "react-icons/fa"
-import * as AiIcons from "react-icons/ai"
-import {NavBarData} from './NavBarData'
+import React, {useContext, useState} from "react";
+import {Link, useHistory} from "react-router-dom";
+import { LoginContext } from "../../Login";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import {NavBarData} from './NavBarData';
 import './NavBar.css';
-import {IconContext} from 'react-icons'
+import {IconContext} from 'react-icons';
+// import topOfPageLogo from '..../Images/topOfPageLogo.png';
+// src/Images/topOfPageLogo.png
+// src/Components/NavBar/NavBar.js
 
 function NavBar(){
     const {loggedIn, toggle} = useContext(LoginContext)
@@ -13,7 +16,7 @@ function NavBar(){
     const [navBar, setNavBar] = useState(false)
 
     const showNavBar = () => setNavBar(!navBar);
-
+    // console.log(topOfPageLogo)
     return (
         <>
         <IconContext.Provider value={{color:'fff'}}>
@@ -21,7 +24,8 @@ function NavBar(){
                 <Link to="#" className='menu-bars'>
                     <FaIcons.FaBars onClick={showNavBar}/> 
                 </Link>
-                <p>Hello</p>
+                <h3 className="top-title">Findex</h3>
+                {/* <img src={logo} alt="top image"/> */}
             </div>
             <nav className={navBar ? "nav-menu active" : "nav-menu"}>
                 <ul className='nav-menu-items' onClick={showNavBar}>
@@ -47,11 +51,6 @@ function NavBar(){
 
         </>
     )
-
-
-
-
-
 
 
     // const headerLinksObj = () => {
