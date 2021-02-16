@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Search from './Search'
 import TransactionCard from './TransactionCard'
+import "./Transactions.css"
 
 
 function TransactionList({transactions, handleRemoveTransaction, categoriesList}){

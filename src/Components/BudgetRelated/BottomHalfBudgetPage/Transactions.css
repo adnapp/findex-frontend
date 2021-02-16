@@ -1,0 +1,23 @@
+.transaction-container { 
+    display: flex;
+  
+    justify-content: center;
+  
+    /* outline-width: 1px; 
+    background: rgb(94, 109, 109);*/
+  }
+
+  .transaction-list-div {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* align-items: center; */
+  }
+
+  
+  .transaction-card-div {
+    border:1px #ccc solid;
+    padding:5px;
+    background: rgb(94, 109, 109);
+  
+  }

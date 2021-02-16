@@ -1,10 +1,21 @@
-import React, {useState} from 'react'
+import React, {useState, useRef, useCallback} from 'react'
 import styled from "styled-components";
 import { MdClose } from 'react-icons/md';
+import { useSpring, animated } from 'react-spring';
 
 
-function Modal({show, onClose, currentIncome, updateMonthBudget}){
+
+function Modal({show, onClose, updateMonthBudget}){
     const [newIncome, setNewIncome] = useState("")
+
+    const animation = useSpring({
+        config: {
+          duration: 250
+        },
+        opacity: show ? 1 : 0,
+        transform: show ? `translateY(0%)` : `translateY(-100%)`
+      });
+
 
     if (!show){
         return null
@@ -20,11 +31,10 @@ function Modal({show, onClose, currentIncome, updateMonthBudget}){
     return(
         <>
             <Background onClick={onClose} >
+            <animated.div style={animation}>
                 <ModalWrapper onClick={e => e.stopPropagation()} >
-                    <div className="modal-header">
-                        <h4 className="modal-title">Current Monthly Income: ${currentIncome}</h4>
-                    </div>
                     <ModalContent>
+                        <h4 className="modal-title">Enter new monthly income:</h4>
                         <form onSubmit={handleSubmit} className="modal-new-form">
                             <input 
                                 type="number"
@@ -43,6 +53,7 @@ function Modal({show, onClose, currentIncome, updateMonthBudget}){
                          onClick={onClose}
                     />
                 </ModalWrapper>
+                </animated.div>
             </Background>
         </>
 
@@ -96,27 +107,6 @@ const ModalContent = styled.div`
         margin-left: 5px;
       }
 `
-//   .modal-content {
-//     width: 500px;
-//     background-color: #fff;
-//   }
-  
-//   .modal-header, .modal-footer {
-//     padding: 10px
-//   }
-  
-//   .modal-title {
-//     margin: 0;
-//   }
-  
-//   .modal-body {
-//     padding: 10px;
-//     border-top: 1px solid #eee;
-//     border-bottom: 1px solid #eee;
-//     display: inline-block;
-//   }
-
-
 
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;

@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import TransactionList from './TransactionList'
+import "./Transactions.css"
+
 
 
 function TransactionContainer({selectedMonthData, submitTransaction, handleRemoveTransaction}){
@@ -27,7 +29,6 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
         return <option key={category.id}  value={category.id}> {category.name }</option>
     })
 
-    // console.log(categoriesList)
 
     function handleSubmit(e) {
         e.preventDefault()

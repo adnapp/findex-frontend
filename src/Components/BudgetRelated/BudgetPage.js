@@ -7,6 +7,7 @@ import CategoryContainer from './TopHalfBudgetPage/CategoryContainer'
 import MonthGraph from './TopHalfBudgetPage/MonthGraph'
 import styled from "styled-components";
 import './BudgetPage.css'
+import * as BiIcons from "react-icons/bi";
 
 
 function BudgetPage(){
@@ -130,11 +131,8 @@ function BudgetPage(){
     const mainProgressBarStyle ={
         width: `${percentageSpent}%`,
         background: "#00468c",
-        // zIndex: 3,
     }
 
-
-    console.log(selectedMonthData)
     //used to not enable this variable unless there is data-- refactor?
     let biggestTransaction = 0
     {selectedMonthData.transactions[0] ?
@@ -145,9 +143,9 @@ function BudgetPage(){
     return( 
         <div className="budget-page-div">
             <div className="month-change-buttons-div">
-                {(existingMonthNums.indexOf(selectedMonthNumber-1) > -1)? <h1 onClick={monthBack} className="month-back">  ◀️  </h1>: null}
-                <h3>{selectedMonthData.name}</h3>
-                {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? <h1 onClick={monthForward} className="month-forward"> ▶️ </h1>: null}
+                {(existingMonthNums.indexOf(selectedMonthNumber-1) > -1)? <h1 onClick={monthBack} className="month-back">  <BiIcons.BiLeftArrow/>  </h1>: null}
+                <h2>{selectedMonthData.name}</h2>
+                {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? <h1 onClick={monthForward} className="month-forward"> <BiIcons.BiRightArrow/> </h1>: null}
             </div>
             {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? null : <button onClick={() => setCreateMonthModal(true)}>Create New Month</button>}
 
@@ -166,7 +164,6 @@ function BudgetPage(){
             <Modal 
                 show={showMIModal} 
                 onClose={() => setShowMIModal(false)}
-                currentIncome = {selectedMonthData.budget}
                 updateMonthBudget={updateMonthBudget}
             />
             <CreateNewMonthModal 
@@ -189,7 +186,7 @@ function BudgetPage(){
                                     <p> Total budget ${totalBudget}. Your budget is higher than your income this month</p> 
                                     : <p>Total budget: {totalBudget}</p>
                                 }
-                            <p>Your highest spend item this month was {biggestTransaction.name} where you spent ${biggestTransaction.amount.toFixed(2)}.</p>
+                            <p>Your highest spend item this month was <strong>{biggestTransaction.name}</strong> where you spent <strong>${biggestTransaction.amount.toFixed(2)}</strong>.</p>
                             <p> and your highest spend category was :</p>
                         </div>
                     : null }

@@ -17,58 +17,6 @@ code {
 
 
 
-
-/* ================================================== */
- /*                      NAV BAR                 */              
- /* ================================================== */
-
-
-/* .nav-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 0 0 10px rgba(66, 66, 66, 0.849);
-  background-color:transparent;
-   position: fixed; 
-  top: 100;
-  width: 100%;
-  transition: 0.4s;
-  z-index: 3;
-} */
-
-/* ul a.active {
-  background-color: #2a7415;
-  padding: 10px 10px;
-  color: white;
-} */
-
-/* ul {
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-ul li {
-  margin-right: 20px;
-} */
-
-
-/* .nav-bar li {
-  display: inline-block;
-  line-height: 37px;
-  padding: 0px 0px;
-  margin: 0px 15px 0px 15px;
-} */
-
-/* 
-.nav-bar li:hover {
-  background-color: #2a7415;
-  padding: 2px 10px;
-  transition: 1s;
-} */
-
-
-
 /* ================================================== */
  /*                       Budget Page                 */              
  /* ================================================== */
@@ -169,7 +117,6 @@ ul li {
 
 
  .progress-bar{
-  position: relative;
   height: 8px;
   border-radius: 5px;
   width: 88%;
@@ -177,8 +124,6 @@ ul li {
   background: rgb(165, 164, 187);
   border:1px #ccc solid;
   z-index: 0;
-
-  
  }
 
 
@@ -198,38 +143,18 @@ ul li {
  /*                       Txn Container                */
  /* ================================================== */
 
-.transaction-container { 
-  display: flex;
 
-  justify-content: center;
-
-  /* outline-width: 1px; 
-  background: rgb(94, 109, 109);*/
-}
 
 
 /* ================================================== */
  /*                       Txn List                    */
  /* ================================================== */
 
-.transaction-list-div {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  /* align-items: center; */
-}
 
 
 /* ================================================== */
  /*                       Txn Card                    */
  /* ================================================== */
-
-.transaction-card-div {
-  border:1px #ccc solid;
-  padding:5px;
-  background: rgb(94, 109, 109);
-
-}
 
 
 
@@ -239,16 +164,6 @@ ul li {
   height: 100%;
   border-radius: 15px;
 }
-
-
-/* ================================================== */
- /*                      Modal.                      */
- /* ================================================== */
-
- /* ================================================== */
- /*          change monthly budget Modal                */
- /* ================================================== */
-
 
 
 

@@ -24,7 +24,6 @@ if (percentage > 100){
 const myStyle ={
     width: `${percentage}%`,
     background: progressBarColor,
-    // zIndex: 3,
 }
 
 
@@ -34,9 +33,7 @@ return(
                 <div 
                     className="progress-filler" 
                     style={myStyle}>
-
                 </div>
-
         </div>
 )
 }

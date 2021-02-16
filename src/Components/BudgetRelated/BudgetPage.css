@@ -8,6 +8,7 @@
 .top-half-budget-page-text{
   display: flex;
   flex-direction: column;
+  padding-right: 10px;
 }
 
 @media(min-width:768px){
@@ -26,7 +27,6 @@
 .month-change-buttons-div{
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .budget-page-chart-div{
@@ -38,4 +38,10 @@
 .no-categories-div{
   border: 1px #ccc solid;
   width: 60%;
+}
+
+
+.bottom-half-budget-page{
+  padding: 10px;
+  text-align: center;
 }
