@@ -3,10 +3,10 @@ import {Link, useHistory} from "react-router-dom";
 import { LoginContext } from "../../Login";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import {NavBarData} from './NavBarData';
-import './NavBar.css';
 import {IconContext} from 'react-icons';
+import {NavBarData} from './NavBarData';
 import Logo from '../images/findexLargerLogo.png';
+import './NavBar.css';
 
 function NavBar(){
     const {loggedIn, toggle} = useContext(LoginContext)
@@ -21,8 +21,10 @@ function NavBar(){
                 <Link to="#" className='menu-bars'>
                     <FaIcons.FaBars onClick={showNavBar}/> 
                 </Link>
-                <h3 className="top-title">Findex</h3>
-                <img src={Logo} alt="top image" width="200" height = "60"/>
+                <Link exact to="/">
+                    <img src={Logo} alt="top image" className="top-title" width="200" height = "60"/>
+                </Link>
+
             </div>
             <nav className={navBar ? "nav-menu active" : "nav-menu"}>
                 <ul className='nav-menu-items' onClick={showNavBar}>

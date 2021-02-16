@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from 'react-dom'
-// import Logo from './topOfPageLogo.png';
-
+import Logo from '../images/findexTopLogo.png';
+import './Home.css'
 
 // import { 
 //     VictoryBar, 
@@ -12,30 +12,21 @@ import ReactDOM from 'react-dom'
 function Home(){
 
 
-    
-
-
-    // const data = [
-    //     {quarter: 1, budget: 13000},
-     
-    //   ];
-
-    // const data2 = [
-    //     {quarter: 1, expense: 20000},
-     
-    //   ];
-
-
 
 
 
     return(
         <div>
+
+        <div className="home-page-logo-wrapper" style={{background: '#060b26'}}>
+            <img src={Logo} alt="findex logo" className="home-page-logo"/>
+        </div>
+
         <h1> this is Home</h1>
 
-        {/* <img src={Logo} alt="hi"/> */}
 
 
+        <h1> At findex, we believe that taking control of your finances is incredibly important</h1>
 
 
 

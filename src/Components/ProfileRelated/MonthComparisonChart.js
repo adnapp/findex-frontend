@@ -1,35 +1,28 @@
 import React, {useEffect, useState} from "react"
 import { Bar } from 'react-chartjs-2';
+import styled from "styled-components";
 
 
 function MonthComparisonChart({allMonths}){
     const [chartData, setChartData] = useState({})
 
-    // console.log(allMonths)
 
+    const allMonthsSorted = allMonths.sort((a, b) => a.id > b.id ? 1 : -1)
 
-    const monthlyBudget = allMonths.map(month=> {
+    const monthlyBudget = allMonthsSorted.map(month=> {
         return month.categories.map(category => (category.budget))
         .reduce(( accumulator, currentValue ) => accumulator + currentValue,0)
     })
-    
-    // console.log("budget",monthlyBudget)
-
-    const monthlyActuals = allMonths.map(month=> {
+   
+    const monthlyActuals = allMonthsSorted.map(month=> {
         return month.transactions.map(transaction => transaction.amount)
         .reduce(( accumulator, currentValue ) => accumulator + currentValue,0)
     })
 
-    // console.log("Actuals", monthlyActuals)
     
     const monthNames = allMonths.map(month=> month.name)
 
-    // console.log(monthNames)
-
-
-    //chart
-
-
+   
     function chart(){
         setChartData({
             labels: monthNames,
@@ -37,8 +30,8 @@ function MonthComparisonChart({allMonths}){
                 {
                     data: monthlyActuals,
                     lineTension: 0.1,
-                    backgroundColor: ["#9acd32","#006400", "#228b22", "#3cb371","#00fa9a","#98fb98", "#3cb371", "#bdffbe", "#808000", "556b2f"],
-                    borderColor: ["#9acd32","#006400", "#228b22", "#3cb371","#00fa9a","#98fb98", "#3cb371",  "#bdffbe", "#808000","556b2f" ],
+                    backgroundColor: ["#3cb371","#3cb371", "#3cb371", "#3cb371","#3cb371","#3cb371", "#3cb371", "#3cb371", "#3cb371", "3cb371"],
+                    borderColor: ["#3cb371"],
                     borderCapStyle: "butt",
                     borderDash: [],
                     borderDashOffset: 0.0,
@@ -51,12 +44,12 @@ function MonthComparisonChart({allMonths}){
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    label: "actuals"
+                    label: "Actual Spend ($)"
                 },
                 {
                     data: monthlyBudget,
                     lineTension: 0.1,
-                    backgroundColor: ["#0f52ba", "#0f52ba", "#0f52ba", "#0f52ba"],//,"#006400", "#228b22", "#3cb371","#00fa9a","#98fb98", "#3cb371", "#bdffbe", "#808000", "556b2f"],
+                    backgroundColor: ["#0f52ba", "#0f52ba", "#0f52ba", "#0f52ba","#0f52ba", "#0f52ba", "#0f52ba","#0f52ba","#0f52ba", "#3cb371", "#0f52ba", "#0f52ba", "556b2f"],
                     borderColor: ["#0f52ba"],//,"#006400", "#228b22", "#3cb371","#00fa9a","#98fb98", "#3cb371",  "#bdffbe", "#808000","556b2f" ],
                     borderCapStyle: "butt",
                     borderDash: [],
@@ -70,7 +63,7 @@ function MonthComparisonChart({allMonths}){
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    label: "budget"
+                    label: "Budgeted Amount ($)"
                 }
             ]
         })
@@ -78,38 +71,64 @@ function MonthComparisonChart({allMonths}){
 
     //scales stacks the chart, if I wanted bar graph made up of different categories
     let chartOptions = {
-        // scales: {
-        //     xAxes: [{
-        //         stacked: true
-        //     }],
-        //     yAxes: [{
-        //         stacked: true
-        //     }]
-        // }
+        responsive: true,
+        title: { text: "Budget vs. Actual Spending per Month", 
+                display:true, 
+                fontSize: 38,
+                fontColor: "#FFFFFF"
+        },    
+        legend: {
+            position: 'left',
+            labels: {
+                fontSize: 18,
+                padding: 12,
+                fontColor: "#FFFFFF"
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true,
+                    fontColor: 'white'
+                },
+            }],
+          xAxes: [{
+                ticks: {
+                    fontColor: 'white'
+                },
+            }]
+        } ,
+        cutoutPercentage: 40,
+        animation: {
+            animateRotate: false,
+            animateScale: true
+          }
     }
-
-
 
     useEffect(() => {
         chart()
     }, [])
 
 
-
-
     return( 
         <>
-        <h3>MonthComparisonChart</h3>
-        <div className="monthly-comparison-chart-div">
+        <BarChartDiv>
             <Bar
                 data={chartData}
                 options={chartOptions}
             />
-        </div>
+        </BarChartDiv>
 
         </>
     )
 }
+
+const BarChartDiv = styled.div`
+    position: relative;
+    height:30vh; 
+    width:60vw
+
+`
 
 
 export default MonthComparisonChart;

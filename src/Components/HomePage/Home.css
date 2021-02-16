@@ -1,0 +1,9 @@
+.home-page-logo{
+    position:absolute;
+    left: 400px;
+}
+
+.home-page-logo-wrapper{
+    width: 100vw;
+    height: 20vh;
+}

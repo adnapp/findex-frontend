@@ -230,7 +230,8 @@ const PercentageSpentLabel = styled.div`
 
 const EditMonthlyIncome = styled.button`
     position:absolute;
-    right: -25px;
+    right: 35px;
+    top: 210px;
     border-radius: 7px;
     padding: 4px 8px;
     border: none;
