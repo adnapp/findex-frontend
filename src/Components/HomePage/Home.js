@@ -26,7 +26,9 @@ function Home(){
 
 
 
-        <h1> At findex, we believe that taking control of your finances is incredibly important</h1>
+        <h1> At findex, we believe that taking control of your finances is an important part of budgeting
+            <br/> Waht does financial freedom mean to you?
+        </h1>
 
 
 

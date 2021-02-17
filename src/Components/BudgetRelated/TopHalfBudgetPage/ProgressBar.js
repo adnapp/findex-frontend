@@ -1,5 +1,5 @@
 import React from "react"
-
+import styled from "styled-components"
 
 function ProgressBar({budget, totalSpent}){
 
@@ -29,13 +29,22 @@ const myStyle ={
 
 
 return(
-        <div className="progress-bar" >
+        <ProgressBarDiv >
                 <div 
                     className="progress-filler" 
                     style={myStyle}>
                 </div>
-        </div>
+        </ProgressBarDiv>
 )
 }
+
+const ProgressBarDiv = styled.div`
+height: 8px;
+border-radius: 5px;
+width: 88%;
+margin: 0 auto;
+background: rgb(165, 164, 187);
+border:1px #ccc solid;
+z-index: 0;`
 
 export default ProgressBar

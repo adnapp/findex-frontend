@@ -1,8 +1,5 @@
 body {
   margin: 0;
-  /* /* background-color: #1b1b1b; */
-  /*color: #ffffff; */
-
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -32,46 +29,6 @@ code {
  /* ================================================== */
 
 
- .add-category-button {
-  background: rgba(247, 249, 252, 0.72);
-  background-image: -webkit-linear-gradient(top, rgba(247, 249, 252, 0.72), #525D6A);
-  background-image: -moz-linear-gradient(top, rgba(247, 249, 252, 0.72), #525D6A);
-  background-image: -ms-linear-gradient(top, rgba(247, 249, 252, 0.72), #525D6A);
-  background-image: -o-linear-gradient(top, rgba(247, 249, 252, 0.72), #525D6A);
-  background-image: -webkit-gradient(to bottom, rgba(247, 249, 252, 0.72), #525D6A);
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  color: #FFFFFF;
-  font-family: Arial;
-  font-size: 20px;
-  font-weight: 100;
-  padding: 11px;
-  -webkit-box-shadow: 1px 1px 20px 0 #FFFFFF;
-  -moz-box-shadow: 1px 1px 20px 0 #FFFFFF;
-  box-shadow: 1px 1px 20px 0 #FFFFFF;
-  text-shadow: 1px 1px 20px #000000;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  text-align: center;
-}
-
-.add-category-button:hover {
-  border: solid #337FED 1px;
-  background: #3D94F6;
-  background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
-  background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
-  background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
-  background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
-  background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  text-decoration: none;
-}
-
-
  
  @media(min-width:768px){
  .category-container-div{
@@ -88,40 +45,6 @@ code {
   margin-right: 20px;
  }
 
- 
-
- /* .category-card-div{
-
-  flex-direction: column; */
-  /* border:1px #ccc solid;
-  width: 20%;
-  align-content: space-around;
-  margin-top: 10;
- } */
-
-
- .progress-bar{
-  height: 8px;
-  border-radius: 5px;
-  width: 88%;
-  margin: 0 auto;
-  background: rgb(165, 164, 187);
-  border:1px #ccc solid;
-  z-index: 0;
- }
-
-
- .progress-filler{
-   /* width: 75%; */
-   height: 100%;
-   border-radius: 5px;
-   /* background: rgb(10, 0, 208); */
-   transition: width .2s ease-in;
- }
-
- /* ================================================== */
- /*                 Bottom Half Budget Page             */              
- /* ================================================== */
 
 /* ================================================== */
  /*                       Txn Card                    */
@@ -132,19 +55,3 @@ code {
   height: 100%;
   border-radius: 15px;
 }
-
-
-/* ================================================== */
- /*                      Investment pg                */
- /* ================================================== */
-
- /* ================================================== */
- /*                      Crypto cards               */
- /* ================================================== */
-
- .crypto-cards-div{
-   display: flex;
-   justify-content: center;
-   flex-direction: column;
-   /* text-align: left; */
- }

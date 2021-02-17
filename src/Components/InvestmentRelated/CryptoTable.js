@@ -3,8 +3,9 @@ import { useSortBy, useTable } from "react-table";
 import useColumns from "./Columns";
 import "./Table.css";
 import { FaCaretSquareUp, FaCaretSquareDown } from "react-icons/fa";
+import styled from 'styled-components';
 
-function CryptoTable({selectedCoins}){
+function CryptoTable({selectedCoins, pageIndex, pageBackward, pageForward}){
     const columns = useColumns();
     const data= selectedCoins
 
@@ -21,6 +22,8 @@ function CryptoTable({selectedCoins}){
       }
 
     return( 
+        <>
+        <ChartTitle>Top 100 Cryptocurrencies by Market Cap*</ChartTitle>
         <div className="container">
             <table {...getTableProps()}>
                 <thead>
@@ -48,7 +51,7 @@ function CryptoTable({selectedCoins}){
                 <tbody {...getTableBodyProps()}>
                     {rows.map(row => {
                         prepareRow(row);
-                        console.log(row)
+                        // console.log(row)
                         return (
                         <tr {...row.getRowProps()}>
                             {row.cells.map(cell => {
@@ -62,9 +65,26 @@ function CryptoTable({selectedCoins}){
                     </tbody>
                 </table>
                 </div>
-            );
+            <ChangePageDiv>      
+                {pageIndex==0 ? <div></div> : <button onClick={() => pageBackward()}>Previous Page</button>}
+                {pageIndex==9? null : <button onClick={() => pageForward()}>Next Page</button>}
+            </ChangePageDiv>  
+        </>
+    );
     
 }
+
+const ChartTitle = styled.h1`
+    text-align: center;
+`
+
+const ChangePageDiv = styled.div`
+display:flex;
+margin: auto;
+width: 40%;
+padding: 10px;
+justify-content:space-between;
+`
 
 
 export default CryptoTable

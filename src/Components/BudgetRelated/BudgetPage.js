@@ -150,14 +150,15 @@ function BudgetPage(){
             {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? null : <button onClick={() => setCreateMonthModal(true)}>Create New Month</button>}
 
             
-            <div className="progress-bar">
-                    <div className="progress-filler" style={mainProgressBarStyle} ></div>
+            <ProgressBarDiv>
+                    <ProgressBarFillerDiv style={mainProgressBarStyle} ></ProgressBarFillerDiv>
                     <br></br>
-                    <PercentageSpentLabel>Spent: ${totalSpent}</PercentageSpentLabel>
-                    <TotalIncomeLabel>Income ${selectedMonthData.budget}</TotalIncomeLabel>
-                    <EditMonthlyIncome onClick={() => setShowMIModal(true)}>Adjust</EditMonthlyIncome>
-                    
-            </div>
+                    <ProgressBarLabels>
+                        <div>Spent: ${totalSpent}</div>
+                        <div>Income ${selectedMonthData.budget}</div>
+                        <EditMonthlyIncome onClick={() => setShowMIModal(true)}>Adjust</EditMonthlyIncome>
+                    </ProgressBarLabels>
+            </ProgressBarDiv>
            <div style={{height: "40px"}}></div> {/* used to move chart lower  */}
             <br></br>
 
@@ -216,22 +217,32 @@ function BudgetPage(){
     )
 }
 
+const ProgressBarDiv = styled.div`
+height: 8px;
+border-radius: 5px;
+width: 88%;
+margin: 0 auto;
+background: rgb(165, 164, 187);
+border:1px #ccc solid;
+z-index: 0;`
 
-const TotalIncomeLabel = styled.div`
-position:absolute;
-right: 40px;
-`;
+const ProgressBarFillerDiv = styled.div`
+height: 100%;
+border-radius: 5px;
+transition: width .2s ease-in;
+`
 
-const PercentageSpentLabel = styled.div`
-  position:absolute;
-    left: 40px;
 
+const ProgressBarLabels = styled.div`
+//  width: 88%;
+ display: flex;
+ justify-content: space-between;
 `
 
 const EditMonthlyIncome = styled.button`
     position:absolute;
     right: 35px;
-    top: 210px;
+    top: 185px;
     border-radius: 7px;
     padding: 4px 8px;
     border: none;

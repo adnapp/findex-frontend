@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import CategoryCard from './CategoryCard'
+import styled from "styled-components"
 
 
 function CategoryContainer({selectedMonthData, createCategory, handleRemoveCategory, submitCategoryEdit}){
@@ -9,9 +10,6 @@ function CategoryContainer({selectedMonthData, createCategory, handleRemoveCateg
         budget: "",
         monthly_budget_id: ""
     })
-
-    // console.log(selectedMonthData.id)
-    // if (selectedMonthData) return <h2>Loading...</h2>;
 
     function handleChange(event){
         const name = event.target.name; 
@@ -30,7 +28,6 @@ function CategoryContainer({selectedMonthData, createCategory, handleRemoveCateg
         createCategory(formData)
         setClicked(false)
     }
-
 
     const sortedCategoriesList = selectedMonthData.categories.sort((a, b)=> b.budget - a.budget)
 
@@ -68,13 +65,12 @@ function CategoryContainer({selectedMonthData, createCategory, handleRemoveCateg
     const createCategoryButtonObj = (
         <div className="create-category-button-div">
             <br></br>
-            <button className="add-category-button" onClick={() => setClicked(true)}>
+            <AddCategoryButton onClick={() => setClicked(true)}>
                 Create New Category
-            </button>
+            </AddCategoryButton>
         </div>
     )
 
-    
     return( 
         <>
         <h2>Categories:</h2>
@@ -87,6 +83,25 @@ function CategoryContainer({selectedMonthData, createCategory, handleRemoveCateg
         </>
     )
 }
+
+const AddCategoryButton = styled.button`
+    background: #060b26;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 50;
+    padding: 10px;
+  text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    :hover {
+        border: solid #337FED 1px;
+        background: #3D94F6;
+        border-radius: 20px;
+        text-decoration: none;
+    }
+`
 
 
 export default CategoryContainer

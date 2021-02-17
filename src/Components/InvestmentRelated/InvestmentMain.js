@@ -53,19 +53,20 @@ function InvestmentMain(){
          setPageIndex(pageIndex-1)
     }
 
-    console.log(pageIndex)
 
     return(
         <>
-        <div className="crypto-cards-div">
-            <h1>investment page</h1>
+        <InvestmentMainPageDiv>
+            <h1>Market Prices for Investments</h1>
+            <p>You may be thinking... now that you are spending more time at home, what additional investments could you put your money towards?</p>
             {/* {coinCardObj} */}
-            <CryptoTable selectedCoins={selectedCoins}/>
-        </div>
-        {pageIndex==0 ? null : <button onClick={() => pageBackward()}>Previous Page</button>}
-        {pageIndex==9? null : <button onClick={() => pageForward()}>Next Page</button>}
+            <CryptoTable selectedCoins={selectedCoins} pageIndex={pageIndex} pageBackward={pageBackward} pageForward={pageForward}/>
+        </InvestmentMainPageDiv>
+        
+        
        
-        <BottomDiv>**Data updated every 5 minutes</BottomDiv>
+        <BottomDiv>**Data updated every 5 minutes <br/>
+            **All Data from CoinGecko</BottomDiv>
         </>
     )
 }
@@ -75,6 +76,13 @@ export default InvestmentMain;
 const BottomDiv = styled.div`
 height:25px;
 padding: 20px 0;
+text-align:center;
+`
 
+
+const InvestmentMainPageDiv = styled.div`
+display: flex;
+justify-content: center;
+flex-direction: column;
 `
 

@@ -23,6 +23,9 @@ function Profile(){
     return( 
         <ProfilePageDiv>
         <h2>{userData.name}'s Profile</h2>
+        <p>average spend per month</p>
+        <p>% within budget</p>
+        <p>additional info/ another chart</p>
         <MonthComparisonChart allMonths={allMonths}/>
         </ProfilePageDiv>
     )
