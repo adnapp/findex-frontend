@@ -25,11 +25,12 @@ function TransactionCard({transaction, handleRemoveTransaction}){ //passing hand
 
 
 const DeleteTransactionButton = styled(AiFillDelete)`
-cursor: pointer;
-width: 16px;
-height: 16px;
-padding: 0;
-z-index: 10;
+    cursor: pointer;
+    // width: 16px;
+    // height: 16px;
+    padding: 0;
+    z-index: 10;
+    float: right;
 
 `
 

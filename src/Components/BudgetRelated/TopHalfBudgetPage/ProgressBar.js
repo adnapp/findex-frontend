@@ -24,27 +24,37 @@ if (percentage > 100){
 const myStyle ={
     width: `${percentage}%`,
     background: progressBarColor,
+    zIndex: 100
 }
 
 
+console.log(myStyle)
 
 return(
         <ProgressBarDiv >
-                <div 
-                    className="progress-filler" 
+                <ProgressBarFillerDiv 
                     style={myStyle}>
-                </div>
-        </ProgressBarDiv>
+                </ProgressBarFillerDiv>
+         </ProgressBarDiv>
 )
 }
 
 const ProgressBarDiv = styled.div`
+position: relative;
+
 height: 8px;
 border-radius: 5px;
 width: 88%;
 margin: 0 auto;
 background: rgb(165, 164, 187);
 border:1px #ccc solid;
-z-index: 0;`
+z-index: 0;
+`
 
+
+const ProgressBarFillerDiv = styled.div`
+    height: 100%;
+    border-radius: 5px;
+    transition: width .2s ease-in;
+`
 export default ProgressBar

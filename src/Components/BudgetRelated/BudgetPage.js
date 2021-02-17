@@ -218,25 +218,26 @@ function BudgetPage(){
 }
 
 const ProgressBarDiv = styled.div`
-height: 8px;
-border-radius: 5px;
-width: 88%;
-margin: 0 auto;
-background: rgb(165, 164, 187);
-border:1px #ccc solid;
-z-index: 0;`
+    height: 8px;
+    border-radius: 5px;
+    width: 88%;
+    margin: 0 auto;
+    background: rgb(165, 164, 187);
+    border:1px #ccc solid;
+    z-index: 0;
+`
 
 const ProgressBarFillerDiv = styled.div`
-height: 100%;
-border-radius: 5px;
-transition: width .2s ease-in;
+    height: 100%;
+    border-radius: 5px;
+    transition: width .2s ease-in;
 `
 
 
 const ProgressBarLabels = styled.div`
-//  width: 88%;
- display: flex;
- justify-content: space-between;
+    //  width: 88%;
+    display: flex;
+    justify-content: space-between;
 `
 
 const EditMonthlyIncome = styled.button`

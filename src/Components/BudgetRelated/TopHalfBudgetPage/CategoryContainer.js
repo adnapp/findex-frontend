@@ -86,11 +86,11 @@ function CategoryContainer({selectedMonthData, createCategory, handleRemoveCateg
 
 const AddCategoryButton = styled.button`
     background: #060b26;
-    border-radius: 20px;
+    border-radius: 15px;
     color: #FFFFFF;
     font-size: 20px;
     font-weight: 50;
-    padding: 10px;
+    padding: 8px;
   text-decoration: none;
     display: inline-block;
     cursor: pointer;

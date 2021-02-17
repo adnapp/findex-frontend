@@ -29,11 +29,8 @@ function TransactionList({transactions, handleRemoveTransaction, categoriesList}
     return( 
         <>
         <div className="transaction-list-div">
-            <h3>Transactions:</h3>
             <Search categoriesList={categoriesList} handleChange={handleChange}/>
             {transactionsObj}
-            
-
         </div>
         </>
     )

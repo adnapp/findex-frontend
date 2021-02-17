@@ -69,18 +69,16 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
          </>
     )
 
-// console.log(categoriesList)
-
     return( 
-        <button>
+        <> <br/><br/>
+        <h1>Transactions</h1>
         <div className="transaction-container">
-            
              <TransactionList transactions={transactions} handleRemoveTransaction={handleRemoveTransaction} categoriesList={categoriesList} />
-
         </div>
-        {!clicked ? <button onClick={(e) => setClicked(true)}>Create Transaction</button> : formObj}
+        <br/>
+        {!clicked ? <button className="add-transaction-button" onClick={(e) => setClicked(true)}>Add a New Transaction</button> : formObj}
 
-        </button>
+        </>
     )
 }
 

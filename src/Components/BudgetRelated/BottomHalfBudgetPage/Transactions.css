@@ -1,10 +1,7 @@
 .transaction-container { 
     display: flex;
-  
+    width: 100%;
     justify-content: center;
-  
-    /* outline-width: 1px; 
-    background: rgb(94, 109, 109);*/
   }
 
   .transaction-list-div {
@@ -19,5 +16,27 @@
     border:1px #ccc solid;
     padding:5px;
     background: rgb(94, 109, 109);
-  
+    /* height: 50px; */
   }
+
+
+  .add-transaction-button{
+    background: #060b26;
+    border-radius: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 50;
+    padding: 8px;
+   text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    
+  }
+
+  .add-transaction-button :hover {
+    border: solid #337FED 1px;
+    background: #3D94F6;
+    border-radius: 20px;
+    text-decoration: none;
+}
