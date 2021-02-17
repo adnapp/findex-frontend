@@ -9,7 +9,7 @@ function App() {
   return (
     <LoginProvider>
       <div className="App">
-          <NavBar/>
+        <NavBar/>
         <MainContainer/>
         <Footer/>
       </div>

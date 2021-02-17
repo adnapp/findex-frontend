@@ -11,7 +11,7 @@ function MainContainer(){
 
 
     return( 
-        <>
+        <div className='main-container-div'>
         <Switch>
             <Route exact path="/">
                 <Home/>
@@ -26,7 +26,7 @@ function MainContainer(){
                 <InvestmentMain/>
             </Route>
         </Switch>
-        </>
+        </div>
     )
 }
 

@@ -127,8 +127,10 @@ function BudgetPage(){
     const totalSpent = selectedMonthData.transactions.map(transaction => transaction.amount)
     .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
 
-    const percentageSpent = (totalSpent / selectedMonthData.budget)*100
+    //maybe utilize other Progress Bar
+    let percentageSpent = (totalSpent / selectedMonthData.budget)*100
     const mainProgressBarStyle ={
+       
         width: `${percentageSpent}%`,
         background: "#00468c",
     }
