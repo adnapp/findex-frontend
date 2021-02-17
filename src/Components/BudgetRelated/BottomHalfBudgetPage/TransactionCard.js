@@ -13,11 +13,12 @@ function TransactionCard({transaction, handleRemoveTransaction}){ //passing hand
 
     return( 
         <div className="transaction-card-div">
-            <p>{name}, ${amount.toFixed(2)} - {category.name}</p>
-            <DeleteTransactionButton 
-                data-id={id}
-                onClick={() => handleRemoveTransaction(id)}
-                />
+            <p>{name}, ${amount.toFixed(2)} - {category.name}
+                <DeleteTransactionButton 
+                    data-id={id}
+                    onClick={() => handleRemoveTransaction(id)}
+                    />
+            </p>
         </div>
     )
 }
@@ -28,9 +29,11 @@ const DeleteTransactionButton = styled(AiFillDelete)`
     cursor: pointer;
     // width: 16px;
     // height: 16px;
-    padding: 0;
-    z-index: 10;
+    // padding: 0;
+    // z-index: 10;
     float: right;
+    vertical-align: middle;
+
 
 `
 
