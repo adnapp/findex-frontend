@@ -9,10 +9,13 @@ function MonthComparisonChart({allMonths}){
 
     const allMonthsSorted = allMonths.sort((a, b) => a.id > b.id ? 1 : -1)
 
-    const monthlyBudget = allMonthsSorted.map(month=> {
-        return month.categories.map(category => (category.budget))
-        .reduce(( accumulator, currentValue ) => accumulator + currentValue,0)
-    })
+    console.log(allMonthsSorted)
+    const monthlyBudget = allMonthsSorted.map(month=> month.budget)
+    //use below if want to sum up all category budgets
+    // const monthlyBudget = allMonthsSorted.map(month=> {
+    //     return month.categories.map(category => (category.budget))
+    //     .reduce(( accumulator, currentValue ) => accumulator + currentValue,0)
+    // })
    
     const monthlyActuals = allMonthsSorted.map(month=> {
         return month.transactions.map(transaction => transaction.amount)
@@ -63,7 +66,7 @@ function MonthComparisonChart({allMonths}){
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    label: "Budgeted Amount ($)"
+                    label: "Income ($)"
                 }
             ]
         })
@@ -72,7 +75,7 @@ function MonthComparisonChart({allMonths}){
     //scales stacks the chart, if I wanted bar graph made up of different categories
     let chartOptions = {
         responsive: true,
-        title: { text: "Budget vs. Actual Spending per Month", 
+        title: { text: "Income vs. Actual Spending per Month", 
                 display:true, 
                 fontSize: 38,
                 fontColor: "#FFFFFF"

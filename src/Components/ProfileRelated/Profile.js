@@ -20,11 +20,36 @@ function Profile(){
 
     if (!isLoaded) return <h2>Loading...</h2>;
 
+    // console.log(allMonths)
+
+    const monthsSimplified = allMonths.map(month=> {
+        let totalSpent
+        {month.transactions[0] ?
+             totalSpent = month.transactions.map(transaction => transaction.amount)
+             .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
+        : totalSpent=0}
+        
+        return {
+            name: month.name,
+            budget: month.budget,
+            spent: totalSpent
+        }
+    })
+
+    // let's make it so only mapping average/percent from months with transactions
+
+    let average =  monthsSimplified.map(month=>month.spent).reduce((a, b) => parseInt(a) + parseInt(b))/monthsSimplified.length;
+
+    let percentInBudget = monthsSimplified.map(month=> {
+        return (month.budget > month.spent ?  1 :  0)
+
+    }).reduce((a, b) => parseInt(a) + parseInt(b))/(monthsSimplified.length)*100
+
     return( 
         <ProfilePageDiv>
         <h2>{userData.name}'s Profile</h2>
-        <p>average spend per month</p>
-        <p>% within budget</p>
+        <TextBoxDivs>Your average spend per month was ${average}</TextBoxDivs>
+        <TextBoxDivs>Your spending was within your income {percentInBudget.toFixed(2)}% of the time</TextBoxDivs>
         <p>additional info/ another chart</p>
         <MonthComparisonChart allMonths={allMonths}/>
         </ProfilePageDiv>
@@ -38,6 +63,12 @@ const ProfilePageDiv = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+`
+
+const TextBoxDivs = styled.div`
+margin: 7px;
+padding: 7px;
+border: 1px;
 `
 
 
