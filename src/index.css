@@ -65,6 +65,74 @@ code {
 }
 
 
-.main-container-div{
-   
+
+
+/* for the category edit */
+input[name=name] {
+  padding: 7px;
+  margin:7px 7px; 
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+
+}
+
+input[name=budget] {
+  padding: 7px;
+  margin:7px 7px; 
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+
+}
+
+
+
+/* on the modal for adjusting income */
+input[name=amount] {
+  padding: 7px;
+  margin:7px 7px; 
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+
+}
+
+
+/* add txn */
+input[name=category_id] {
+  padding: 7px;
+  margin:7px 7px; 
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+
+}
+select {
+  /* width: 70%; */
+  padding:7px;
+  border-radius:8px;
+}
+
+
+
+
+.rounded-input {
+  padding:7px;
+  border-radius:7px;
+}
+
+input, textarea {
+  font-family:inherit;
+  font-size: inherit;
+}
+
+button {
+
+  /* remove default behavior */
+  appearance:none;
+  -webkit-appearance:none;
+
+  /* usual styles */
+  margin:7px;
+  padding:7px;
+  border:none;
+  background-color:#3F51B5;
+  color:#fff;
+  font-weight:600;
+  border-radius:5px;
+  /* width:100%; */
+
 }

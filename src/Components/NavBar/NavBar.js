@@ -1,6 +1,6 @@
-import React, {useContext, useState} from "react";
-import {Link, useHistory} from "react-router-dom";
-import { LoginContext } from "../../Login";
+import React, { useState} from "react";
+import {Link} from "react-router-dom";
+// import { LoginContext } from "../../Login";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import {IconContext} from 'react-icons';
@@ -9,8 +9,8 @@ import Logo from '../images/findexLargerLogo.png';
 import './NavBar.css';
 
 function NavBar(){
-    const {loggedIn, toggle} = useContext(LoginContext)
-    const history = useHistory()
+    // const {loggedIn, toggle} = useContext(LoginContext)
+    // const history = useHistory()
     const [navBar, setNavBar] = useState(false)
 
     const showNavBar = () => setNavBar(!navBar);
@@ -22,7 +22,7 @@ function NavBar(){
                     <FaIcons.FaBars onClick={showNavBar}/> 
                 </Link>
                 <Link exact to="/">
-                    <img src={Logo} alt="top image" className="top-title" width="200" height = "60"/>
+                    <img src={Logo} alt="top-image" className="top-title" width="200" height = "60"/>
                 </Link>
 
             </div>

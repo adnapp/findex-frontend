@@ -9,6 +9,28 @@
   display: flex;
   flex-direction: column;
   padding-right: 10px;
+  width: 30vw;
+  text-align: center;
+  height: 200px;
+  /* padding: 50px 10px;   */
+  background: #060b26;
+  color: white;
+  font-size: large;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.no-categories-div{
+  border: 1px #ccc solid;
+  width: 40vw;
+  background: green;
+  border-radius: 15px;
+  text-align: center;
+  height: 200px;
+  padding: 50px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #060b26;
+  font-size: larger;
 }
 
 @media(min-width:768px){
@@ -35,13 +57,27 @@
     width: 50%;
 }
 
-.no-categories-div{
-  border: 1px #ccc solid;
-  width: 60%;
-}
 
 
 .bottom-half-budget-page{
   padding: 10px;
   text-align: center;
+}
+
+.bar-chart-div{
+    /* position: relative; */
+    height:350px; 
+    width:700px;
+}
+
+.edit-monthly-income-button{
+  position:absolute;
+  right: 35px;
+  top: 185px;
+  border-radius: 7px;
+  padding: 4px 8px;
+  border: none;
+  color: #fff;
+  background: #141414;
+  cursor: pointer;
 }

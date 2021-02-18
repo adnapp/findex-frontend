@@ -158,7 +158,7 @@ function BudgetPage(){
                     <ProgressBarLabels>
                         <div>Spent: ${totalSpent}</div>
                         <div>Income ${selectedMonthData.budget}</div>
-                        <EditMonthlyIncome onClick={() => setShowMIModal(true)}>Adjust</EditMonthlyIncome>
+                        <button className="edit-monthly-income-button" onClick={() => setShowMIModal(true)}>Adjust</button>
                     </ProgressBarLabels>
             </ProgressBarDiv>
            <div style={{height: "40px"}}></div> {/* used to move chart lower  */}
@@ -186,21 +186,24 @@ function BudgetPage(){
                                 {existingMonthNums.indexOf(selectedMonthNumber+1) == -1 ? <button onClick={() => setCreateMonthModal(true)}>Create New Month</button> : null}
                             </div>  
                                 {totalBudget > selectedMonthData.budget ? 
-                                    <p> Total budget ${totalBudget}. Your budget is higher than your income this month</p> 
-                                    : <p>Total budget: {totalBudget}</p>
+                                    <p> You have budgeted ${totalBudget}. Your budget is higher than your income this month</p> 
+                                    : <p>You have budgeted ${totalBudget} for this month.</p>
                                 }
                             <p>Your highest spend item this month was <strong>{biggestTransaction.name}</strong> where you spent <strong>${biggestTransaction.amount.toFixed(2)}</strong>.</p>
-                            <p> and your highest spend category was :</p>
+                            {/* <p> and your highest spend category was :</p> */}
                         </div>
-                    : null }
-                    <div className="budget-page-chart-div">
+                    : <div className="top-half-budget-page-text">
+                        <p>You have not imported any transactions for this month yet</p>
+                    </div>
+                }
+                    <div className='bar-chart-div'>
                         {selectedMonthData.categories[0]? (
                         <MonthGraph selectedMonthData={selectedMonthData}/> 
                         ) : (
                         <div className="no-categories-div">
-                            <h3>You should create some categories for this month</h3>
-                            <h3>Use the button below</h3></div>)}
-                        </div>
+                            <h3>You don't have a budget for this month!</h3>
+                            <h3>Create some categories below to begin building a budget</h3></div>)}
+                    </div>
                 </div>
                 <CategoryContainer 
                     selectedMonthData={selectedMonthData} 
@@ -242,17 +245,7 @@ const ProgressBarLabels = styled.div`
     justify-content: space-between;
 `
 
-const EditMonthlyIncome = styled.button`
-    position:absolute;
-    right: 35px;
-    top: 185px;
-    border-radius: 7px;
-    padding: 4px 8px;
-    border: none;
-    color: #fff;
-    background: #141414;
-    cursor: pointer;
-`;
+
 
 
 

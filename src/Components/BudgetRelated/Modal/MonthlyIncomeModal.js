@@ -34,7 +34,7 @@ function Modal({show, onClose, updateMonthBudget}){
             <animated.div style={animation}>
                 <ModalWrapper onClick={e => e.stopPropagation()} >
                     <ModalContent>
-                        <h4 className="modal-title">Enter new monthly income:</h4>
+                        <h3 className="modal-title">Enter new monthly income:</h3>
                         <form onSubmit={handleSubmit} className="modal-new-form">
                             <input 
                                 type="number"

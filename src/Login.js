@@ -1,5 +1,5 @@
 import {createContext, useState} from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 
 
 //global state: loggedIn?

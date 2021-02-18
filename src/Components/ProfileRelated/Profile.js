@@ -20,7 +20,7 @@ function Profile(){
 
     if (!isLoaded) return <h2>Loading...</h2>;
 
-    // console.log(allMonths)
+    console.log(allMonths)
 
     const monthsSimplified = allMonths.map(month=> {
         let totalSpent
@@ -34,9 +34,14 @@ function Profile(){
             budget: month.budget,
             spent: totalSpent
         }
-    })
+    }).filter(month => month.spent != 0 )
 
+    console.log(monthsSimplified)
+
+    
     // let's make it so only mapping average/percent from months with transactions
+
+
 
     let average =  monthsSimplified.map(month=>month.spent).reduce((a, b) => parseInt(a) + parseInt(b))/monthsSimplified.length;
 

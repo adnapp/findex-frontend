@@ -53,6 +53,7 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
                 name="name"
                 value={formData.name}
                 onChange={handleChange} />
+             <label>$</label>
              <input 
                 type="number"
                 placeholder="Transaction Amount"
@@ -65,7 +66,7 @@ function TransactionContainer({selectedMonthData, submitTransaction, handleRemov
             </select>
             <button type="submit">Add Transaction</button>
          </form>
-         <button onClick={() => setClicked(false)}>cancel</button>
+         <button onClick={() => setClicked(false)}>Cancel</button>
          </>
     )
 

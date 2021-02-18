@@ -25,9 +25,13 @@ function Home(){
 
         <HomeDiv>
 
-            <h1> At findex, we believe that taking control of your finances is an important part of budgeting
+            <HomeTextObjects> At findex, we believe that taking control of your finances is an important part of budgeting
                 <br/> Waht does financial freedom mean to you?
-            </h1>
+            </HomeTextObjects>
+            <HomeTextObjects>Input data point here</HomeTextObjects>
+            <HomeTextObjects>Input Image</HomeTextObjects>
+            <HomeTextObjects>Input data point here</HomeTextObjects>
+
         </HomeDiv>
 
 
@@ -37,6 +41,12 @@ function Home(){
 
 const HomeDiv = styled.div`
 text-align: center;
+`
+
+const HomeTextObjects = styled.div`
+font-size: 34px;
+margin: 20px;
+padding:20px;
 `
 
 

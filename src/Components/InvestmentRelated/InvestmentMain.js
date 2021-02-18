@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useMemo} from "react"
-import ReactDOM from 'react-dom'
-import CoinCard from "./CoinCard"
+// import ReactDOM from 'react-dom'
+// import CoinCard from "./CoinCard"
 import styled from "styled-components";
 import useColumns from "./Columns";
 import CryptoTable from "./CryptoTable";
@@ -14,7 +14,7 @@ function InvestmentMain(){
     const [pageIndex, setPageIndex] = useState(0)
     const columns = useColumns();
 
-    console.log(columns)
+    // console.log(columns)
 
     //pull api data every xx amt of time
     useEffect(() => {
@@ -36,7 +36,7 @@ function InvestmentMain(){
     
     const selectedCoins = allCoins.slice(coinIndex, coinIndex+10)
     
-    console.log(selectedCoins)
+    // console.log(selectedCoins)
 
 
     // const coinCardObj = selectedCoins.map((coin, index)=>{
@@ -84,5 +84,6 @@ const InvestmentMainPageDiv = styled.div`
 display: flex;
 justify-content: center;
 flex-direction: column;
+padding: 10px;
 `
 

@@ -28,7 +28,7 @@ const myStyle ={
 }
 
 
-console.log(myStyle)
+// console.log(myStyle)
 
 return(
         <ProgressBarDiv >
@@ -40,7 +40,7 @@ return(
 }
 
 const ProgressBarDiv = styled.div`
-position: relative;
+// position: relative;
 
 height: 8px;
 border-radius: 5px;
