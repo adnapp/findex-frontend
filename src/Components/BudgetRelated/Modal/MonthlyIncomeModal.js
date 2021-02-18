@@ -97,8 +97,6 @@ const ModalContent = styled.div`
      border-top: 1px solid #eee;
      border-bottom: 1px solid #eee;
      display: inline-block;
-
-
      button {
         padding: 10px 21px;
         background: #141414;

@@ -32,8 +32,9 @@ function BudgetPage(){
     
     if (!isLoaded) return <h2>Loading...</h2>;
     
-    const existingMonthNums = allMonths.map(month => month.id )
-   
+    const existingMonthNums = allMonths.map(month => month.id ).sort()
+//    console.log(existingMonthNums.sort())
+
     function submitTransaction(formData){
         fetch(`${process.env.REACT_APP_API_BASE_URL}/transactions`, {
             method: 'POST',
@@ -49,6 +50,7 @@ function BudgetPage(){
     }
     
     function handleRemoveTransaction(id){
+        console.log(id)
         fetch(`${process.env.REACT_APP_API_BASE_URL}/transactions/${id}`, {
             method: "DELETE"
         })
@@ -59,14 +61,22 @@ function BudgetPage(){
     const selectedMonthData = allMonths.find(month=>(month.id == selectedMonthNumber))
     
     function handleRemoveCategory(id){
-        
         fetch(`${process.env.REACT_APP_API_BASE_URL}/categories/${id}`, {
             method: "DELETE"
             })
             .then(response => response.json())
             .then(data => setTransactions(data))
-        
     }
+
+    function handleRemoveMonth(){
+        console.log(selectedMonthNumber)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/monthly_budgets/${selectedMonthNumber}`, {
+            method: "DELETE"
+            })
+            .then(response => response.json())
+            .then(setSelectedMonthNumber(44))
+    }
+console.log(selectedMonthNumber)
 
     function createCategory(formData){
         fetch(`${process.env.REACT_APP_API_BASE_URL}/categories`, {
@@ -108,24 +118,30 @@ function BudgetPage(){
     }
 
     function monthForward(){
-           if( existingMonthNums.indexOf(selectedMonthNumber+1)>-1 ){
-            setSelectedMonthNumber((selectedMonthNumber+1))
-        }
+        //    if( existingMonthNums.indexOf(selectedMonthNumber+1)>-1 ){
+        //     setSelectedMonthNumber((selectedMonthNumber+1))
+        // }
+        setSelectedMonthNumber(existingMonthNums[indexOfSelectedMonth+1])
     }
 
     function monthBack(){
-        if(existingMonthNums.indexOf(selectedMonthNumber)){
-            setSelectedMonthNumber((selectedMonthNumber-1))
-        }
+        // if(existingMonthNums.indexOf(selectedMonthNumber)){
+        //     setSelectedMonthNumber((selectedMonthNumber-1))
+        // }
+        setSelectedMonthNumber(existingMonthNums[indexOfSelectedMonth-1])
+
     }
     
+    let totalBudget=0
+    let totalSpent=0
     //sum up total budget
-    const totalBudget = selectedMonthData.categories.map(category => (category.budget))
+    if (selectedMonthData.categories[0]){
+     totalBudget = selectedMonthData.categories.map(category => (category.budget))
     .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
 
     //sums up total spent
-    const totalSpent = selectedMonthData.transactions.map(transaction => transaction.amount)
-    .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
+     totalSpent = selectedMonthData.transactions.map(transaction => transaction.amount)
+    .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)}
 
     //maybe utilize other Progress Bar
     let percentageSpent = (totalSpent / selectedMonthData.budget)*100
@@ -142,12 +158,14 @@ function BudgetPage(){
         (accumulator,obj) => (obj.amount > accumulator.amount ? obj : accumulator))
     :  biggestTransaction=0}
 
+    let indexOfSelectedMonth = (existingMonthNums.indexOf(selectedMonthNumber))
+
     return( 
         <div className="budget-page-div">
             <div className="month-change-buttons-div">
-                {(existingMonthNums.indexOf(selectedMonthNumber-1) > -1)? <h1 onClick={monthBack} className="month-back">  <BiIcons.BiLeftArrow/>  </h1>: null}
+                {existingMonthNums[indexOfSelectedMonth-1]? <h1 onClick={monthBack} className="month-back">  <BiIcons.BiLeftArrow/>  </h1>: null}
                 <h2>{selectedMonthData.name}</h2>
-                {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? <h1 onClick={monthForward} className="month-forward"> <BiIcons.BiRightArrow/> </h1>: null}
+                {existingMonthNums[indexOfSelectedMonth+1]? <h1 onClick={monthForward} className="month-forward"> <BiIcons.BiRightArrow/> </h1>: null}
             </div>
             {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? null : <button onClick={() => setCreateMonthModal(true)}>Create New Month</button>}
 
@@ -218,6 +236,7 @@ function BudgetPage(){
                     <TransactionContainer selectedMonthData={selectedMonthData} submitTransaction={submitTransaction} handleRemoveTransaction={handleRemoveTransaction}/>
                 </div>
             : null}
+            <button onClick={handleRemoveMonth}>Delete Month</button>
         </div>
     )
 }
