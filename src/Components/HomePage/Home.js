@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Logo from '../images/findexTopLogo.png';
 import './Home.css'
 import styled from 'styled-components'
+import tulumImage from '../images/Tulum.jpg'
 
 // import { 
 //     VictoryBar, 
@@ -26,10 +27,10 @@ function Home(){
         <HomeDiv>
 
             <HomeTextObjects> At findex, we believe that taking control of your finances is an important part of budgeting
-                <br/> Waht does financial freedom mean to you?
+                <br/><br/> What does financial freedom mean to you?
             </HomeTextObjects>
+            <TulumImage src={tulumImage}></TulumImage>
             <HomeTextObjects>Input data point here</HomeTextObjects>
-            <HomeTextObjects>Input Image</HomeTextObjects>
             <HomeTextObjects>Input data point here</HomeTextObjects>
 
         </HomeDiv>
@@ -47,6 +48,12 @@ const HomeTextObjects = styled.div`
 font-size: 34px;
 margin: 20px;
 padding:20px;
+width: 100vw;
+`
+
+const TulumImage = styled.img`
+width: 100vw;
+height: 100vh;
 `
 
 

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { MdClose } from 'react-icons/md';
 
 
-function CreateNewMonthModal({show, onClose, setSelectedMonthNumber}){
+function CreateNewMonthModal({show, onClose, setSelectedMonthNumber, setIsLoaded}){
     
     const [formData, setFormData] = useState({
         name: "",
@@ -46,7 +46,9 @@ function CreateNewMonthModal({show, onClose, setSelectedMonthNumber}){
             budget: ""
         })
         onClose()
+        setIsLoaded(false)
     }
+    console.log(formData)
 
     function handleChange(event){
         const name = event.target.name; 
@@ -78,15 +80,15 @@ function CreateNewMonthModal({show, onClose, setSelectedMonthNumber}){
                     <div className="modal-header">
                         <h4 className="modal-title">Create Budget for a New Month</h4>
                     </div>
-                    <div className="modal-body">
-                        <form onSubmit={handleSubmit} className="modal-new-form">
+                    <ModalBody>
+                        <ModalForm onSubmit={handleSubmit}>
                             <label>Name</label>
                             <input 
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange} />
                                 <br/>
-                            <label>Budget</label>
+                            <label>Expected Income</label>
                             <input 
                                 type="number"
                                 name="budget"
@@ -119,8 +121,8 @@ function CreateNewMonthModal({show, onClose, setSelectedMonthNumber}){
                             <button  type="submit" className="button-modal-close">
                                 Submit
                             </button>
-                        </form>
-                    </div>
+                        </ModalForm>
+                    </ModalBody>
 
                     </ModalContent>  
                     <CloseModalButton
@@ -193,3 +195,11 @@ const CloseModalButton = styled(MdClose)`
   padding: 0;
   z-index: 10;
 `;
+
+const ModalBody = styled.div`
+text-align:center;
+`
+
+const ModalForm = styled.form`
+text-align:center;
+`

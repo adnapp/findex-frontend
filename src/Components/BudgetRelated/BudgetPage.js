@@ -28,7 +28,7 @@ function BudgetPage(){
             setAllMonths(data)
             setIsLoaded(true)
         })
-    }, [transactions, selectedMonthNumber])
+    }, [transactions, selectedMonthNumber, selectedMonthNumber])
     
     if (!isLoaded) return <h2>Loading...</h2>;
     
@@ -135,13 +135,14 @@ console.log(selectedMonthNumber)
     let totalBudget=0
     let totalSpent=0
     //sum up total budget
-    if (selectedMonthData.categories[0]){
+    // if (selectedMonthData){
      totalBudget = selectedMonthData.categories.map(category => (category.budget))
     .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
 
     //sums up total spent
      totalSpent = selectedMonthData.transactions.map(transaction => transaction.amount)
-    .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)}
+    .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
+// }
 
     //maybe utilize other Progress Bar
     let percentageSpent = (totalSpent / selectedMonthData.budget)*100
@@ -159,16 +160,14 @@ console.log(selectedMonthNumber)
     :  biggestTransaction=0}
 
     let indexOfSelectedMonth = (existingMonthNums.indexOf(selectedMonthNumber))
-
+            console.log(existingMonthNums)
     return( 
         <div className="budget-page-div">
             <div className="month-change-buttons-div">
-                {existingMonthNums[indexOfSelectedMonth-1]? <h1 onClick={monthBack} className="month-back">  <BiIcons.BiLeftArrow/>  </h1>: null}
+                {existingMonthNums[indexOfSelectedMonth-1] ? <h1 onClick={monthBack} className="month-back">  <BiIcons.BiLeftArrow/>  </h1>: null}
                 <h2>{selectedMonthData.name}</h2>
-                {existingMonthNums[indexOfSelectedMonth+1]? <h1 onClick={monthForward} className="month-forward"> <BiIcons.BiRightArrow/> </h1>: null}
+                {existingMonthNums[indexOfSelectedMonth+1] ? <h1 onClick={monthForward} className="month-forward"> <BiIcons.BiRightArrow/> </h1>: null}
             </div>
-            {(existingMonthNums.indexOf(selectedMonthNumber+1) > -1)? null : <button onClick={() => setCreateMonthModal(true)}>Create New Month</button>}
-
             
             <ProgressBarDiv>
                     <ProgressBarFillerDiv style={mainProgressBarStyle} ></ProgressBarFillerDiv>
@@ -191,6 +190,7 @@ console.log(selectedMonthNumber)
                 show={createMonthModal}
                 onClose={() => setCreateMonthModal(false)}
                 setSelectedMonthNumber = {setSelectedMonthNumber}
+                setIsLoaded = {setIsLoaded}
             
             />
 
@@ -200,9 +200,6 @@ console.log(selectedMonthNumber)
 
                     {selectedMonthData.transactions[0] ? //only display text if transacitons exist
                         <div className="top-half-budget-page-text">
-                            <div className="adjust-add-budget-buttons-div">
-                                {existingMonthNums.indexOf(selectedMonthNumber+1) == -1 ? <button onClick={() => setCreateMonthModal(true)}>Create New Month</button> : null}
-                            </div>  
                                 {totalBudget > selectedMonthData.budget ? 
                                     <p> You have budgeted ${totalBudget}. Your budget is higher than your income this month</p> 
                                     : <p>You have budgeted ${totalBudget} for this month.</p>
@@ -237,6 +234,10 @@ console.log(selectedMonthNumber)
                 </div>
             : null}
             <button onClick={handleRemoveMonth}>Delete Month</button>
+
+            <AddNewMonthDiv>
+                {!existingMonthNums[indexOfSelectedMonth+1] ? <button onClick={() => setCreateMonthModal(true)}>Create New Month</button> : null}
+            </AddNewMonthDiv>   
         </div>
     )
 }
@@ -262,6 +263,11 @@ const ProgressBarLabels = styled.div`
     //  width: 88%;
     display: flex;
     justify-content: space-between;
+`
+const AddNewMonthDiv = styled.div`
+    position: absolute;
+    top: 100px;
+    right: 120px;
 `
 
 

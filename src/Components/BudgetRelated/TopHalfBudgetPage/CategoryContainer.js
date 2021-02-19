@@ -27,6 +27,11 @@ function CategoryContainer({selectedMonthData, createCategory, handleRemoveCateg
         e.preventDefault();
         createCategory(formData)
         setClicked(false)
+        setFormData({
+            name: "",
+            budget: "",
+            monthly_budget_id: ""
+        })
     }
 
     const sortedCategoriesList = selectedMonthData.categories.sort((a, b)=> b.budget - a.budget)
