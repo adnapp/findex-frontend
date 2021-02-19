@@ -9,9 +9,7 @@ function Search({categoriesList, handleChange}){
 
     return( 
         <div className="txn-search-card-div">
-            <label>
-                Find transaction by category
-            </label>
+            <label>Find transaction by category </label>
             
             <select onChange={(e) => handleChange(e.target.value)}>
                 <option selected value="all">All</option>

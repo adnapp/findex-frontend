@@ -54,8 +54,9 @@ function Profile(){
         <ProfilePageDiv>
         <h2>{userData.name}'s Profile</h2>
         <TextBoxDivs>Your average spend per month was ${average}</TextBoxDivs>
-        <TextBoxDivs>Your spending was within your income {percentInBudget.toFixed(2)}% of the time</TextBoxDivs>
-        <p>additional info/ another chart</p>
+        <TextBoxDivs>Your spending was within your income {percentInBudget.toFixed(1)}% of the time</TextBoxDivs>
+        {/* <p>additional info/ another chart</p> */}
+        <br/><br/>
         <MonthComparisonChart allMonths={allMonths}/>
         </ProfilePageDiv>
     )

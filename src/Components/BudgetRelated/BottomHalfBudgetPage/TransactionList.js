@@ -26,10 +26,12 @@ function TransactionList({transactions, handleRemoveTransaction, categoriesList}
         return <TransactionCard key={transaction.id} transaction={transaction} handleRemoveTransaction={handleRemoveTransaction}/>
     }))
 
+    console.log(transactions)
+
     return( 
         <>
         <div className="transaction-list-div">
-            <Search categoriesList={categoriesList} handleChange={handleChange}/>
+            {transactions[0] ? <Search categoriesList={categoriesList} handleChange={handleChange}/>: null}
             {transactionsObj}
         </div>
         </>

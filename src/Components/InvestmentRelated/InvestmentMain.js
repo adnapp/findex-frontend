@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useMemo} from "react"
-// import ReactDOM from 'react-dom'
-// import CoinCard from "./CoinCard"
+import ReactDOM from 'react-dom'
+import CoinCard from "./CoinCard"
 import styled from "styled-components";
 import useColumns from "./Columns";
 import CryptoTable from "./CryptoTable";
@@ -36,7 +36,7 @@ function InvestmentMain(){
     
     const selectedCoins = allCoins.slice(coinIndex, coinIndex+10)
     
-    // console.log(selectedCoins)
+    console.log(selectedCoins)
 
 
     // const coinCardObj = selectedCoins.map((coin, index)=>{
@@ -59,6 +59,7 @@ function InvestmentMain(){
         <InvestmentMainPageDiv>
             <h1>Market Prices for Investments</h1>
             <p>You may be thinking... now that you are spending more time at home, what additional investments could you put your money towards?</p>
+            <br/><br/>
             {/* {coinCardObj} */}
             <CryptoTable selectedCoins={selectedCoins} pageIndex={pageIndex} pageBackward={pageBackward} pageForward={pageForward}/>
         </InvestmentMainPageDiv>
@@ -85,5 +86,6 @@ display: flex;
 justify-content: center;
 flex-direction: column;
 padding: 10px;
+margin:20px;
 `
 

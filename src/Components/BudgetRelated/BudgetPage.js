@@ -160,7 +160,7 @@ console.log(selectedMonthNumber)
     :  biggestTransaction=0}
 
     let indexOfSelectedMonth = (existingMonthNums.indexOf(selectedMonthNumber))
-            console.log(existingMonthNums)
+    console.log(selectedMonthData)
     return( 
         <div className="budget-page-div">
             <div className="month-change-buttons-div">
@@ -198,14 +198,16 @@ console.log(selectedMonthNumber)
                 
                 <div className="text-and-chart-budget-page">
 
-                    {selectedMonthData.transactions[0] ? //only display text if transacitons exist
+                    {selectedMonthData.categories[0] ? //only display text if transacitons exist
                         <div className="top-half-budget-page-text">
                                 {totalBudget > selectedMonthData.budget ? 
                                     <p> You have budgeted ${totalBudget}. Your budget is higher than your income this month</p> 
                                     : <p>You have budgeted ${totalBudget} for this month.</p>
                                 }
-                            <p>Your highest spend item this month was <strong>{biggestTransaction.name}</strong> where you spent <strong>${biggestTransaction.amount.toFixed(2)}</strong>.</p>
-                            {/* <p> and your highest spend category was :</p> */}
+                                {selectedMonthData.transactions[0] ?
+                                    <p>Your highest spend item this month was <strong>{biggestTransaction.name}</strong> where you spent <strong>${biggestTransaction.amount.toFixed(2)}</strong>.</p>
+                            : null }
+                                    {/* <p> and your highest spend category was :</p> */}
                         </div>
                     : <div className="top-half-budget-page-text">
                         <p>You have not imported any transactions for this month yet</p>

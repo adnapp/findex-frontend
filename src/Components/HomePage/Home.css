@@ -7,3 +7,24 @@
     width: 100vw;
     height: 20vh;
 }
+
+.bulleted-list-div{
+    text-align: left;
+    width: 50vw;
+    height: 25vh;
+}
+
+.bulleted-list-div ul{
+
+list-style-type: circle;
+}
+
+.right-bulleted-list-div{
+    width: 50vw;
+    height: 15vh;
+    padding: 50px 0;
+    background: grey;
+    border-radius: 25px;
+    margin: 35px;
+
+}
