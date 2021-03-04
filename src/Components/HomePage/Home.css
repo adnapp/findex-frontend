@@ -12,6 +12,7 @@
     text-align: left;
     width: 50vw;
     height: 25vh;
+    margin: 20px;
 }
 
 .bulleted-list-div ul{
@@ -22,9 +23,15 @@ list-style-type: circle;
 .right-bulleted-list-div{
     width: 50vw;
     height: 15vh;
-    padding: 50px 0;
+    padding: 30px 0;
     background: grey;
     border-radius: 25px;
-    margin: 35px;
+    margin: 25px;
 
+}
+
+.below-image-text{
+
+    display: flex;
+    /* font-size: 34px; */
 }

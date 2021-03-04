@@ -195,9 +195,8 @@ console.log(selectedMonthNumber)
             />
 
             <div className="top-half-budget-page">
-                
+            
                 <div className="text-and-chart-budget-page">
-
                     {selectedMonthData.categories[0] ? //only display text if transacitons exist
                         <div className="top-half-budget-page-text">
                                 {totalBudget > selectedMonthData.budget ? 
