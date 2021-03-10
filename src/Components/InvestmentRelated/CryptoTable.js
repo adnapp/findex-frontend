@@ -1,6 +1,8 @@
 import React from "react";
 import { useSortBy, useTable } from "react-table";
 import useColumns from "./Columns";
+import { Link , useHistory} from "react-router-dom";
+
 import "./Table.css";
 import { FaCaretSquareUp, FaCaretSquareDown } from "react-icons/fa";
 import styled from 'styled-components';
@@ -8,6 +10,9 @@ import styled from 'styled-components';
 function CryptoTable({selectedCoins, pageIndex, pageBackward, pageForward}){
     const columns = useColumns();
     const data= selectedCoins
+
+    const history = useHistory()
+
 
     console.log(selectedCoins)
 
@@ -23,8 +28,9 @@ function CryptoTable({selectedCoins, pageIndex, pageBackward, pageForward}){
       console.log(e.target)
       }
 
-      function handleRowClick(e){
-          console.log(e)
+      function handleRowClick(name){
+          console.log(name)
+          history.push(`/investments/${name}`)
       }
 
     return( 
@@ -61,11 +67,12 @@ function CryptoTable({selectedCoins, pageIndex, pageBackward, pageForward}){
                         return (
                         <tr {...row.getRowProps()}
                             onClick={() => handleRowClick(row.values.name)}>
-                            {row.cells.map(cell => {
-                            return (
-                                <td {...cell.getCellProps()} >{cell.render("Cell")}</td>
-                            );
-                            })}
+                                {row.cells.map(cell => {
+                                return (
+                                    <td {...cell.getCellProps()} >{cell.render("Cell")}</td>
+                                    );
+                                })}
+
                         </tr>
                         );
                     })}
