@@ -23,6 +23,10 @@ function CryptoTable({selectedCoins, pageIndex, pageBackward, pageForward}){
       console.log(e.target)
       }
 
+      function handleRowClick(e){
+          console.log(e)
+      }
+
     return( 
         <>
         <ChartTitle>Top 100 Cryptocurrencies by Market Cap*</ChartTitle>
@@ -55,7 +59,8 @@ function CryptoTable({selectedCoins, pageIndex, pageBackward, pageForward}){
                         prepareRow(row);
                         // console.log(row)
                         return (
-                        <tr {...row.getRowProps()}>
+                        <tr {...row.getRowProps()}
+                            onClick={() => handleRowClick(row.values.name)}>
                             {row.cells.map(cell => {
                             return (
                                 <td {...cell.getCellProps()} >{cell.render("Cell")}</td>

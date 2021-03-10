@@ -9,7 +9,7 @@ function useColumns() {
 
     function toFormat(numberString) {
         let number = parseFloat(numberString);
-        return number.toLocaleString('USD');
+        return '$' + number.toLocaleString('USD');
     }
 
     function toImage(url){
