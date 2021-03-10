@@ -39,9 +39,9 @@ function InvestmentMain(){
     console.log(selectedCoins)
 
 
-    // const coinCardObj = selectedCoins.map((coin, index)=>{
-    //     return <CoinCard key={coin.current_price} coin={coin} order={pageIndex*10+index+1}/>
-    // })
+    const coinCardObj = selectedCoins.map((coin, index)=>{
+        return <CoinCard key={coin.current_price} coin={coin} order={pageIndex*10+index+1}/>
+    })
 
     function pageForward(){
         setCoinIndex(coinIndex+10);

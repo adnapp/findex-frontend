@@ -25,12 +25,7 @@ function Home(){
         <div className="home-page-logo-wrapper" style={{background: '#060b26'}}>
             <img src={Logo} alt="findex logo" className="home-page-logo"/>
         </div>
-        <div>
 
-        <img src="https://www.appointletcdn.com/loader/buttons/008DBD.png" data-appointlet-organization="hearing-t9acc"></img>
-        <a href="www.google.com">google</a>
-        
-        </div>
 
         <HomeDiv>
 

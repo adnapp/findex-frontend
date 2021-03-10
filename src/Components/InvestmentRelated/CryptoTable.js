@@ -9,6 +9,8 @@ function CryptoTable({selectedCoins, pageIndex, pageBackward, pageForward}){
     const columns = useColumns();
     const data= selectedCoins
 
+    console.log(selectedCoins)
+
     const {
         getTableProps,
         getTableBodyProps,

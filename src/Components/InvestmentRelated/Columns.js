@@ -1,15 +1,19 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
 function useColumns() {
 
     function toCurrency(numberString) {
         let number = parseFloat(numberString);
-        return number.toLocaleString('USD');
+        return '$' + number.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     }
 
     function toFormat(numberString) {
         let number = parseFloat(numberString);
         return number.toLocaleString('USD');
+    }
+
+    function toImage(url){
+      return <img src={url} height='30' alt="image"></img>
     }
 
   const columns = useMemo(
@@ -19,13 +23,17 @@ function useColumns() {
         accessor: "market_cap_rank"
       },
       {
+        Header: "",
+        accessor: "image",
+        Cell: props =>  toImage(props.value)
+      },
+      {
         Header: "Name",
         accessor: "name",
-        style: {
-            color: 'blue'
-        }
+       
         
       },
+     
       {
         Header: "Symbol",
         accessor: "symbol"

@@ -1,6 +1,8 @@
 {
   "name": "findex",
   "version": "0.1.0",
+  "description": "An online application to keep track of finances",
+  "author": "adam napoletano",
   "private": true,
   "dependencies": {
     "@nivo/bar": "^0.67.0",

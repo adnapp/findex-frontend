@@ -1,7 +1,7 @@
 
   table {
-    border-spacing: 0;
-    border: 1px solid black;
+    border-spacing: 1;
+    /* border: 1px solid black; */
   }
   
   tr:last-child td {
@@ -12,8 +12,8 @@
   td {
     margin: 0px;
     padding: 0.5rem;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+    /* border-bottom: 1px solid black;
+    border-right: 1px solid black; */
   }
 
   

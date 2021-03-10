@@ -26,7 +26,12 @@ function CoinCard({coin, order}){
 
     return(
         <CoinCardDiv>
-            <h2>#{order}, {coin.name}</h2>
+            <h2>#{order}. {coin.name}</h2>
+            <img 
+              src={coin.image} 
+              alt="coin image"
+              width="50"
+              height="50"></img>
             <h3>{coin.symbol}</h3>
             <p style={{color: color}}>${coin.current_price}</p>
         </CoinCardDiv>
