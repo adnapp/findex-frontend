@@ -9,36 +9,38 @@ function MonthGraph({selectedMonthData}){
     const categoryLabels = selectedMonthData.categories.map(data => data.name)
     const categoryData = selectedMonthData.categories.map(data => data.budget)
 
-    function chart(){
-        setChartData({
-            labels: categoryLabels,
-            datasets: [
-                {
-                    data: categoryData,
-                    lineTension: 0.1,
-                    backgroundColor: ["#9acd32","#006400", "#228b22", "#3cb371","#00fa9a","#98fb98", "#3cb371", "#bdffbe", "#808000", "556b2f"],
-                    borderColor: ["#9acd32","#006400", "#228b22", "#3cb371","#00fa9a","#98fb98", "#3cb371",  "#bdffbe", "#808000","556b2f" ],
-                    borderCapStyle: "butt",
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: "miter",
-                    pointBorderColor: "#2085d8",
-                    pointBackgroundColor: "#FFF",
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "#2f3640",
-                    pointHoverBorderColor: "#2085d8",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                }
-            ]
-        })
-    }
+    
 
     useEffect(() => {
+        function chart(){
+            setChartData({
+                labels: categoryLabels,
+                datasets: [
+                    {
+                        data: categoryData,
+                        lineTension: 0.1,
+                        backgroundColor: ["#9acd32","#006400", "#228b22", "#3cb371","#00fa9a","#98fb98", "#3cb371", "#bdffbe", "#808000", "556b2f"],
+                        borderColor: ["#9acd32","#006400", "#228b22", "#3cb371","#00fa9a","#98fb98", "#3cb371",  "#bdffbe", "#808000","556b2f" ],
+                        borderCapStyle: "butt",
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: "miter",
+                        pointBorderColor: "#2085d8",
+                        pointBackgroundColor: "#FFF",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "#2f3640",
+                        pointHoverBorderColor: "#2085d8",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                    }
+                ]
+            })
+        }
+
         chart()
-    }, [selectedMonthData])
+    }, [selectedMonthData, categoryLabels,categoryData ])
 
     let chartOptions = {
         responsive: true,

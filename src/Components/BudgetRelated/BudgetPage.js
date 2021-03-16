@@ -28,7 +28,7 @@ function BudgetPage(){
             setAllMonths(data)
             setIsLoaded(true)
         })
-    }, [transactions, selectedMonthNumber, selectedMonthNumber])
+    }, [transactions, selectedMonthNumber])
     
     if (!isLoaded) return <h2>Loading...</h2>;
     
