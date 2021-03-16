@@ -9,9 +9,9 @@ function Footer(){
         <FooterDiv>
             <h1>Findex</h1>
             <p>®</p>
-            <p><i class="fab fa-instagram"></i></p>
-            <p><i class="fab fa-twitter"></i></p>
-            <p><i class="fab fa-youtube"></i></p>
+            <p><i className="fab fa-instagram"></i></p>
+            <p><i className="fab fa-twitter"></i></p>
+            <p><i className="fab fa-youtube"></i></p>
         </FooterDiv>
     
     )
