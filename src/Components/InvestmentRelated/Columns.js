@@ -13,7 +13,7 @@ function useColumns() {
     }
 
     function toImage(url){
-      return <img src={url} height='30' alt="image"></img>
+      return <img src={url} height='30' alt="coin"></img>
     }
 
   const columns = useMemo(

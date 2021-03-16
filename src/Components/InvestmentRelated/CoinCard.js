@@ -29,7 +29,7 @@ function CoinCard({coin, order}){
             <h2>#{order}. {coin.name}</h2>
             <img 
               src={coin.image} 
-              alt="coin image"
+              alt="coin-here"
               width="50"
               height="50"></img>
             <h3>{coin.symbol}</h3>

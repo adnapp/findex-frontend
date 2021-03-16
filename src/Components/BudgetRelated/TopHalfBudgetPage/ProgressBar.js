@@ -10,9 +10,9 @@ let progressBarColor
 if (percentage > 100){
      percentage = 100
      progressBarColor = "red"
-} else if(percentage==0){
+} else if(parseInt(percentage)===0){
     progressBarColor = "rgb(165, 164, 187)"
-}else if(percentage==100){
+}else if(parseInt(percentage)===100){
     progressBarColor = "#347c17"
 }else if(percentage >= 90 && percentage < 100){
     progressBarColor = "rgb(203, 172, 48)"

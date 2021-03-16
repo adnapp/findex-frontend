@@ -1,7 +1,7 @@
 import React from "react";
 import { useSortBy, useTable } from "react-table";
 import useColumns from "./Columns";
-import { Link , useHistory} from "react-router-dom";
+import { useHistory} from "react-router-dom";
 
 import "./Table.css";
 import { FaCaretSquareUp, FaCaretSquareDown } from "react-icons/fa";
@@ -24,9 +24,9 @@ function CryptoTable({selectedCoins, pageIndex, pageBackward, pageForward}){
         prepareRow
       } = useTable({ columns, data }, useSortBy);
 
-      function doNothing(e){
-      console.log(e.target)
-      }
+    //   function doNothing(e){
+    //   console.log(e.target)
+    //   }
 
       function handleRowClick(name){
           console.log(name)
@@ -80,8 +80,8 @@ function CryptoTable({selectedCoins, pageIndex, pageBackward, pageForward}){
                 </table>
                 </div>
             <ChangePageDiv>      
-                {pageIndex==0 ? <div></div> : <button onClick={() => pageBackward()}>Previous Page</button>}
-                {pageIndex==9? null : <button onClick={() => pageForward()}>Next Page</button>}
+                {parseInt(pageIndex)===0 ? <div></div> : <button onClick={() => pageBackward()}>Previous Page</button>}
+                {parseInt(pageIndex)===9? null : <button onClick={() => pageForward()}>Next Page</button>}
             </ChangePageDiv>  
         </>
     );

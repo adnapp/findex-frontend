@@ -19,7 +19,7 @@ function TransactionList({transactions, handleRemoveTransaction, categoriesList}
         if (selectedCategory === "all"){
             return transaction 
         }
-        return transaction.category_id == selectedCategory
+        return transaction.category_id === parseInt(selectedCategory)
     })
 
     const transactionsObj = filteredTransactions.map((transaction=> {

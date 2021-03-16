@@ -17,13 +17,13 @@ function CategoryCard({category, handleRemoveCategory, submitCategoryEdit}){
         0
       ).toFixed(2)
 
-      const data1 = [
-          {spending: 1, spent: totalSpent}
-      ]
+    //   const data1 = [
+    //       {spending: 1, spent: totalSpent}
+    //   ]
 
-      const data2 = [
-        {"budgeted": 1, spent: budget}
-    ]
+    //   const data2 = [
+    //     {"budgeted": 1, spent: budget}
+    // ]
 
     const categoryDataObj = (
         <>

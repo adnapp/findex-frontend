@@ -1,8 +1,8 @@
-import React, {useEffect, useState, useMemo} from "react"
-import ReactDOM from 'react-dom'
-import CoinCard from "./CoinCard"
+import React, {useEffect, useState} from "react"
+// import ReactDOM from 'react-dom'
+// import CoinCard from "./CoinCard"
 import styled from "styled-components";
-import useColumns from "./Columns";
+// import useColumns from "./Columns";
 import CryptoTable from "./CryptoTable";
 
 
@@ -12,7 +12,7 @@ function InvestmentMain(){
     const [coinIndex, setCoinIndex] = useState(0)
     const [isLoaded, setIsLoaded] = useState(false)
     const [pageIndex, setPageIndex] = useState(0)
-    const columns = useColumns();
+    // const columns = useColumns();
 
     // console.log(columns)
 
@@ -39,9 +39,9 @@ function InvestmentMain(){
     console.log(selectedCoins)
 
 
-    const coinCardObj = selectedCoins.map((coin, index)=>{
-        return <CoinCard key={coin.current_price} coin={coin} order={pageIndex*10+index+1}/>
-    })
+    // const coinCardObj = selectedCoins.map((coin, index)=>{
+    //     return <CoinCard key={coin.current_price} coin={coin} order={pageIndex*10+index+1}/>
+    // })
 
     function pageForward(){
         setCoinIndex(coinIndex+10);
@@ -61,6 +61,7 @@ function InvestmentMain(){
             <p>You may be thinking... now that you are spending more time at home, what additional investments could you put your money towards?</p>
             <br/><br/>
             {/* {coinCardObj} */}
+            <InvestButton>Invest in Crypto! (coming soon) </InvestButton>
             <CryptoTable selectedCoins={selectedCoins} pageIndex={pageIndex} pageBackward={pageBackward} pageForward={pageForward}/>
         </InvestmentMainPageDiv>
         
@@ -88,4 +89,6 @@ flex-direction: column;
 padding: 10px;
 margin:20px;
 `
-
+const InvestButton = styled.button`
+width: 50vw;
+`

@@ -23,7 +23,7 @@ function NavBar(){
                     <FaIcons.FaBars onClick={showNavBar}/> 
                 </Link>
                 <Link exact to="/">
-                    <img src={Logo} alt="top-image" className="top-title" width="200" height = "60"/>
+                    <img src={Logo} alt="top-logo" className="top-title" width="200" height = "60"/>
                 </Link>
 
             </div>

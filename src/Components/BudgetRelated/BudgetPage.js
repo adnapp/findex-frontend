@@ -58,7 +58,7 @@ function BudgetPage(){
         .then(data => setTransactions(data))
     }
     
-    const selectedMonthData = allMonths.find(month=>(month.id == selectedMonthNumber))
+    const selectedMonthData = allMonths.find(month=>(month.id === parseInt(selectedMonthNumber)))
     
     function handleRemoveCategory(id){
         fetch(`${process.env.REACT_APP_API_BASE_URL}/categories/${id}`, {
