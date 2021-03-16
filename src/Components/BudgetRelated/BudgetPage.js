@@ -154,10 +154,10 @@ console.log(selectedMonthNumber)
 
     //used to not enable this variable unless there is data-- refactor?
     let biggestTransaction = 0
-    {selectedMonthData.transactions[0] ?
+    selectedMonthData.transactions[0] ?
          biggestTransaction = selectedMonthData.transactions.reduce(
         (accumulator,obj) => (obj.amount > accumulator.amount ? obj : accumulator))
-    :  biggestTransaction=0}
+    :  biggestTransaction=0
 
     let indexOfSelectedMonth = (existingMonthNums.indexOf(selectedMonthNumber))
     console.log(selectedMonthData)

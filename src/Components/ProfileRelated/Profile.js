@@ -24,17 +24,17 @@ function Profile(){
 
     const monthsSimplified = allMonths.map(month=> {
         let totalSpent
-        {month.transactions[0] ?
+        month.transactions[0] ?
              totalSpent = month.transactions.map(transaction => transaction.amount)
              .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
-        : totalSpent=0}
+        : totalSpent=0
         
         return {
             name: month.name,
             budget: month.budget,
             spent: totalSpent
         }
-    }).filter(month => month.spent != 0 )
+    }).filter(month => month.spent !== 0 )
 
     console.log(monthsSimplified)
 

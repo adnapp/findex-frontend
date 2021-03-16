@@ -12,7 +12,7 @@ function Search({categoriesList, handleChange}){
             <label>Find transaction by category </label>
             
             <select onChange={(e) => handleChange(e.target.value)}>
-                <option selected value="all">All</option>
+                <option defaultValue="all">All</option>
                 {categoriesList}
             </select>
         </div>

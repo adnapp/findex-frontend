@@ -9,20 +9,22 @@ function InvestmentDetail(){
 
     const coinName = params.id.toLowerCase()
     
+  
 
     useEffect(() => {
+        const apiCall = () => {
+            fetch(`https://api.coingecko.com/api/v3/coins/${coinName}`)
+            .then(response => response.json())
+            .then(data => {
+                setCoinData(data)
+                setIsLoaded(true)})
+        }
         apiCall()
         const id = setInterval(apiCall, 100000);
         return () => clearInterval(id);
-        }, [])
+        }, [coinName])
 
-    const apiCall = () => {
-        fetch(`https://api.coingecko.com/api/v3/coins/${coinName}`)
-        .then(response => response.json())
-        .then(data => {
-            setCoinData(data)
-            setIsLoaded(true)})
-    }
+   
     
     if (!isLoaded) return <h2>Loading...</h2>;
 
