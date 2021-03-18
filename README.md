@@ -8,7 +8,7 @@
 
 
 <a href="https://youtu.be/DlVj1qxiG9w" target="_blank"><img src="http://img.youtube.com/vi/DlVj1qxiG9w/0.jpg" 
-alt="Krunch Demo" width="240" height="180" border="10" /></a>
+alt="Findex Demo" width="240" height="180" border="10" /></a>
 
 
 
