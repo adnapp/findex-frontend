@@ -14,11 +14,11 @@ function BudgetPage(){
     const [showMIModal, setShowMIModal] = useState(false)
     const [createMonthModal, setCreateMonthModal] = useState(false)
     const [allMonths, setAllMonths]= useState({})
-    const [selectedMonthNumber, setSelectedMonthNumber] = useState(44) /// let's auto select this
+    const [selectedMonthNumber, setSelectedMonthNumber] = useState(68) /// let's auto select this
     const [isLoaded, setIsLoaded] = useState(false)
     const [transactions, setTransactions] = useState([]) //used to refresh page
     
-    //look @ time.now to set initial date on page load
+    //look @ time.now to set initial date on page load - edge case if we dont have a month created
     
     //initial load
     useEffect(()=> {
@@ -33,7 +33,6 @@ function BudgetPage(){
     if (!isLoaded) return <h2>Loading...</h2>;
     
     const existingMonthNums = allMonths.map(month => month.id ).sort()
-//    console.log(existingMonthNums.sort())
 
     function submitTransaction(formData){
         fetch(`${process.env.REACT_APP_API_BASE_URL}/transactions`, {
@@ -60,6 +59,7 @@ function BudgetPage(){
     
     const selectedMonthData = allMonths.find(month=>(month.id === parseInt(selectedMonthNumber)))
     
+    console.log(allMonths)
     function handleRemoveCategory(id){
         fetch(`${process.env.REACT_APP_API_BASE_URL}/categories/${id}`, {
             method: "DELETE"
@@ -118,27 +118,19 @@ console.log(selectedMonthNumber)
     }
 
     function monthForward(){
-        //    if( existingMonthNums.indexOf(selectedMonthNumber+1)>-1 ){
-        //     setSelectedMonthNumber((selectedMonthNumber+1))
-        // }
         setSelectedMonthNumber(existingMonthNums[indexOfSelectedMonth+1])
     }
 
     function monthBack(){
-        // if(existingMonthNums.indexOf(selectedMonthNumber)){
-        //     setSelectedMonthNumber((selectedMonthNumber-1))
-        // }
         setSelectedMonthNumber(existingMonthNums[indexOfSelectedMonth-1])
-
     }
-    
+    console.log(selectedMonthData)
     let totalBudget=0
     let totalSpent=0
     //sum up total budget
-    // if (selectedMonthData){
      totalBudget = selectedMonthData.categories.map(category => (category.budget))
     .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
-
+console.log( totalBudget)
     //sums up total spent
      totalSpent = selectedMonthData.transactions.map(transaction => transaction.amount)
     .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)

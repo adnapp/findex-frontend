@@ -41,12 +41,12 @@ function Home(){
                             <li>Purchasing a beach front home?</li>
                             <li>Buying your first home?</li>
                             <li>Having enough money to comfortably retire at 50?</li>
-                            <li>Buying a lambo?</li>
+                            <li>Buying an expensive car?</li>
                         
                         </ul>
                     </div>
                     <div className="right-bulleted-list-div">
-                        Do you know how you're going reach these goals? 
+                        Do you have a plan to reach these goals? 
                     </div>
 
                 </HomeTextObjects>
