@@ -22,7 +22,7 @@ function InvestmentDetail(){
         apiCall()
         const id = setInterval(apiCall, 100000);
         return () => clearInterval(id);
-        }, [coinName])
+    }, [coinName])
 
    
     

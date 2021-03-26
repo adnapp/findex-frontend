@@ -130,7 +130,6 @@ console.log(selectedMonthNumber)
     //sum up total budget
      totalBudget = selectedMonthData.categories.map(category => (category.budget))
     .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
-console.log( totalBudget)
     //sums up total spent
      totalSpent = selectedMonthData.transactions.map(transaction => transaction.amount)
     .reduce(( accumulator, currentValue ) => accumulator + currentValue,0).toFixed(2)
@@ -139,7 +138,6 @@ console.log( totalBudget)
     //maybe utilize other Progress Bar
     let percentageSpent = (totalSpent / selectedMonthData.budget)*100
     const mainProgressBarStyle ={
-       
         width: `${percentageSpent}%`,
         background: "#00468c",
     }

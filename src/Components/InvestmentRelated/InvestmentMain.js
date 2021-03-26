@@ -14,8 +14,6 @@ function InvestmentMain(){
     const [pageIndex, setPageIndex] = useState(0)
     // const columns = useColumns();
 
-    // console.log(columns)
-
     //pull api data every xx amt of time
     useEffect(() => {
         apiCall()
@@ -90,5 +88,5 @@ padding: 10px;
 margin:20px;
 `
 const InvestButton = styled.button`
-width: 50vw;
+width: 30vw;
 `
