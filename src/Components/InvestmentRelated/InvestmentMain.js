@@ -61,12 +61,17 @@ function InvestmentMain(){
             {/* {coinCardObj} */}
             <InvestButton>Invest in Crypto! (coming soon) </InvestButton>
             <a href="https://www.coinbase.com/oauth/authorize/oauth_signin?client_id=0f2a8cd78a151b126a7be948bf82e47a1e81bfcd8a83e757d4258b31bc90c45c&redirect_uri=https%3A%2F%2Fdev-up463193.us.auth0.com%2Flogin%2Fcallback&response_type=code&scope=wallet%3Aaccounts%3Aread+wallet%3Aaddresses%3Aread+wallet%3Abuys%3Aread+wallet%3Acheckouts%3Aread+wallet%3Adeposits%3Aread+wallet%3Aorders%3Aread+wallet%3Asells%3Aread+wallet%3Atransactions%3Aread+wallet%3Auser%3Aread+wallet%3Awithdrawals%3Aread&state=TgPxN_Y7DmjD74YSJnYAotEKgpdINHNs">Login to Coinbase</a>
+            {/* maybe make this a fetch request and the response will be what we need
+            how to fetch to auth0 */}
+            
             <CryptoTable selectedCoins={selectedCoins} pageIndex={pageIndex} pageBackward={pageBackward} pageForward={pageForward}/>
         </InvestmentMainPageDiv>
         
         
        
         <BottomDiv>**Data updated every 5 minutes <br/>
+
+
             **All Data from CoinGecko</BottomDiv>
         </>
     )
